@@ -544,6 +544,8 @@
   <catalogs>Catalog.Предметы</catalogs>
   <catalogs>Catalog.События</catalogs>
   <catalogs>Catalog.ТипыСвязей</catalogs>
+  <documents>Document.ОперацияКошелька</documents>
+  <enums>Enum.ВидыОперацийКошелька</enums>
   <enums>Enum.МеждудневьяХарптоса</enums>
   <enums>Enum.МесяцыХарптоса</enums>
   <enums>Enum.ПорядокОбработчиковОбновления</enums>
@@ -592,4 +594,5 @@
   <informationRegisters>InformationRegister.СоставыГруппПользователей</informationRegisters>
   <informationRegisters>InformationRegister.УдалитьБезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
   <informationRegisters>InformationRegister.ФиксацияОбработкиДанныхОбработчиками</informationRegisters>
+  <accumulationRegisters>AccumulationRegister.КошелькиПерсонажей</accumulationRegisters>
 </mdclass:Configuration>

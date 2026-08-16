@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="bd5f509e-2b07-44aa-8937-a74b52a786e9">
+  <producedTypes>
+    <selectionType typeId="b35bcd99-227c-4389-abb8-00779ce4f7f4" valueTypeId="7d447874-6f09-48c9-856d-9be716507901"/>
+    <listType typeId="4d3049bb-17ee-41c7-bfb5-279b93dc9580" valueTypeId="45f9b51d-f039-4581-8032-23311844560f"/>
+    <managerType typeId="0f837d2f-9e1d-4abe-9973-a19537fdc0c7" valueTypeId="6a148fec-4074-4e70-a768-6f744d61183b"/>
+    <recordSetType typeId="75100fd3-5e0e-4b7d-a709-385b5eeb531e" valueTypeId="b14ef147-152e-41a2-84fe-8e847333f082"/>
+    <recordKeyType typeId="56c844ea-0a43-4c47-ab1d-1c22bee1e6d9" valueTypeId="8dadec97-56ee-4c2d-94fa-18435d7afa79"/>
+    <recordType typeId="f8ff8952-e4eb-4848-ae0a-0390bcd62428" valueTypeId="df6aa853-6d6e-4363-b2cf-c4424a7db679"/>
+  </producedTypes>
+  <name>КошелькиПерсонажей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кошельки персонажей</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="a11e375c-240e-4f0b-8489-fc06c7044755">
+    <name>PP</name>
+    <synonym>
+      <key>ru</key>
+      <value>PP</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="86d39734-9986-40e3-b916-1434951d48e9">
+    <name>GP</name>
+    <synonym>
+      <key>ru</key>
+      <value>GP</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="00b07489-1c2b-475e-9720-ee1c860525c9">
+    <name>EP</name>
+    <synonym>
+      <key>ru</key>
+      <value>EP</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="8e7b40e3-014f-4296-b54f-c579b3caa0f1">
+    <name>SP</name>
+    <synonym>
+      <key>ru</key>
+      <value>SP</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="c8b1a54a-449b-49bb-8fe7-b4570e0aaf03">
+    <name>CP</name>
+    <synonym>
+      <key>ru</key>
+      <value>CP</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="169f80c5-66b5-4a30-ad50-039f579a6847">
+    <name>Персонаж</name>
+    <synonym>
+      <key>ru</key>
+      <value>Персонаж</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Персонажи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

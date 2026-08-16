@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="8e8fa358-42d5-4380-8c2c-9a61d97639b0">
+  <producedTypes>
+    <refType typeId="bd8bf118-99d5-46e3-a39e-7d8e01e6c0a8" valueTypeId="dd989ac1-dc1d-4f14-af76-801d07f13a47"/>
+    <listType typeId="112645b6-3378-4077-a506-84132f0cfe5f" valueTypeId="3a255b99-3ea4-4f8b-b4e0-db3b1e1f73e6"/>
+    <managerType typeId="6484ab94-0306-46dc-92c2-a96ea3104600" valueTypeId="4983c5a9-6cc9-479f-9506-4fde06001ec7"/>
+  </producedTypes>
+  <name>ВидыОперацийКошелька</name>
+  <synonym>
+    <key>ru</key>
+    <value>Виды операций кошелька</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="edebe64d-1fba-462e-9aa6-7d0c69a0eab3">
+    <name>Доход</name>
+    <synonym>
+      <key>ru</key>
+      <value>Доход</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="44f21b10-a449-40e7-9e21-95b87583d67d">
+    <name>ДенежныйРасход</name>
+    <synonym>
+      <key>ru</key>
+      <value>Денежный расход</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="a2318e04-0e9e-48e8-821f-98bf52902b77">
+    <name>МатериальныйРасход</name>
+    <synonym>
+      <key>ru</key>
+      <value>Материальный расход</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="963d949a-79d3-4f27-a161-b5fd8bbc8a1c">
+    <name>Корректировка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Корректировка</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>
