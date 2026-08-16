@@ -524,6 +524,7 @@
   <catalogs>Catalog.ВнешниеПользователи</catalogs>
   <catalogs>Catalog.ГруппыВнешнихПользователей</catalogs>
   <catalogs>Catalog.ГруппыПользователей</catalogs>
+  <catalogs>Catalog.Заметки</catalogs>
   <catalogs>Catalog.ИдентификаторыОбъектовМетаданных</catalogs>
   <catalogs>Catalog.ИдентификаторыОбъектовРасширений</catalogs>
   <catalogs>Catalog.Кампании</catalogs>

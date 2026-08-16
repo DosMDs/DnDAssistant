@@ -17,4 +17,5 @@
   <content>Catalog.Предметы</content>
   <content>Catalog.КатегорииПредметов</content>
   <content>InformationRegister.Псеводнимы</content>
+  <content>Catalog.Заметки</content>
 </mdclass:Subsystem>
