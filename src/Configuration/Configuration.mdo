@@ -527,6 +527,7 @@
   <catalogs>Catalog.ИдентификаторыОбъектовМетаданных</catalogs>
   <catalogs>Catalog.ИдентификаторыОбъектовРасширений</catalogs>
   <catalogs>Catalog.Кампании</catalogs>
+  <catalogs>Catalog.КатегорииПредметов</catalogs>
   <catalogs>Catalog.Квесты</catalogs>
   <catalogs>Catalog.Локации</catalogs>
   <catalogs>Catalog.Организации</catalogs>

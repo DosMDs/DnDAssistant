@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="9bcba774-0586-43e2-af20-4bdb7aea95db">
+  <producedTypes>
+    <objectType typeId="4ed0fe50-18c7-4520-be97-23ac8711bbbd" valueTypeId="c3a1e66b-85cc-4bcd-b6e4-6b8d00a18965"/>
+    <refType typeId="72ff802c-eb2a-41a6-a616-516a355eefd3" valueTypeId="f65fc91b-5fef-4d69-9112-639ba3c827bb"/>
+    <selectionType typeId="6f595425-7f4b-477c-aef3-91c81d16b625" valueTypeId="28db43f4-dbc2-47c3-8032-8789d95695bc"/>
+    <listType typeId="0e9566fc-d540-40b7-86cc-53e34d90d625" valueTypeId="2d955430-ce96-4fed-a478-0771432b8b7b"/>
+    <managerType typeId="3c70493b-5e7c-4ce9-9005-fa068a95d170" valueTypeId="9222e1d2-150d-479c-a54e-d62349f14358"/>
+  </producedTypes>
+  <name>КатегорииПредметов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Категории предметов</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.КатегорииПредметов.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.КатегорииПредметов.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>PredefinedDataName</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Predefined</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>DeletionMark</name>
+    <fillValue xsi:type="core:BooleanValue"/>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>IsFolder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Owner</name>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Parent</name>
+    <synonym>
+      <key>ru</key>
+      <value>Категория</value>
+    </synonym>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Description</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Code</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <objectPresentation>
+    <key>ru</key>
+    <value>Категория предмета</value>
+  </objectPresentation>
+  <hierarchical>true</hierarchical>
+  <hierarchyType>HierarchyOfItems</hierarchyType>
+  <limitLevelCount>true</limitLevelCount>
+  <levelCount>3</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>150</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="47002a81-322a-4e65-a3fc-172cab8af29b">
+      <name>Оружие</name>
+      <description>Оружие</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+      <content id="40a73b58-8c57-4d66-b02a-1179b867c949">
+        <name>ПростоеОружие</name>
+        <description>Простое оружие</description>
+        <code xsi:type="core:StringValue">
+          <value>000000010</value>
+        </code>
+        <content id="e5befb6f-5f15-42fb-838a-fb869ce2cd6f">
+          <name>ПростоеОружиеРукопашное</name>
+          <description>Рукопашное</description>
+          <code xsi:type="core:StringValue">
+            <value>000000011</value>
+          </code>
+        </content>
+        <content id="0dd18c35-faaa-4705-8e25-418fc029c8a1">
+          <name>ПростоеОружиеДальнобойное</name>
+          <description>Дальнобойное</description>
+          <code xsi:type="core:StringValue">
+            <value>000000012</value>
+          </code>
+        </content>
+      </content>
+      <content id="26fc395b-a874-4dff-8c4a-1b0c6402a2c9">
+        <name>ВоинскоеОружие</name>
+        <description>Воинское оружие</description>
+        <code xsi:type="core:StringValue">
+          <value>000000013</value>
+        </code>
+        <content id="dd77e9b2-58e5-4d18-a1a5-d0bb448999e9">
+          <name>ВоинскоеОружиеРукопашное</name>
+          <description>Рукопашное</description>
+          <code xsi:type="core:StringValue">
+            <value>000000014</value>
+          </code>
+        </content>
+        <content id="dd5d3194-797d-49ba-b554-141386b609be">
+          <name>ВоинскоеОружиеДальнобойное</name>
+          <description>Дальнобойное</description>
+          <code xsi:type="core:StringValue">
+            <value>000000015</value>
+          </code>
+        </content>
+      </content>
+      <content id="624077ed-fc14-4635-8869-5dda87c251fa">
+        <name>Боеприпасы</name>
+        <description>Боеприпасы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000016</value>
+        </code>
+      </content>
+    </items>
+    <items id="92ed7353-6962-4cdf-8395-f3e2ac4a1267">
+      <name>Доспехи</name>
+      <description>Доспехи</description>
+      <code xsi:type="core:StringValue">
+        <value>000000002</value>
+      </code>
+      <content id="e22b74ce-9ba6-40da-af08-8bc96a810399">
+        <name>ЛегкиеДоспехи</name>
+        <description>Легкие доспехи</description>
+        <code xsi:type="core:StringValue">
+          <value>000000017</value>
+        </code>
+      </content>
+      <content id="985fc7d4-0324-4be5-9d9d-2857516c9809">
+        <name>СредниеДоспехи</name>
+        <description>Средние доспехи</description>
+        <code xsi:type="core:StringValue">
+          <value>000000018</value>
+        </code>
+      </content>
+      <content id="eb68b4e7-637e-4845-b635-8231ec7dc650">
+        <name>ТяжёлыеДоспехи</name>
+        <description>Тяжёлые доспехи</description>
+        <code xsi:type="core:StringValue">
+          <value>000000019</value>
+        </code>
+      </content>
+      <content id="9d528177-3c1d-467c-9aad-8c5498b6b5f2">
+        <name>Щиты</name>
+        <description>Щиты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000020</value>
+        </code>
+      </content>
+    </items>
+    <items id="77746abb-edd1-4a12-829c-41d1b300c2be">
+      <name>Снаряжение</name>
+      <description>Снаряжение</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+      <content id="f70bf9b3-13fc-4db0-ac1b-c375aa0cb4d5">
+        <name>ПриключенческоеСнаряжение</name>
+        <description>Приключенческое снаряжение</description>
+        <code xsi:type="core:StringValue">
+          <value>000000021</value>
+        </code>
+      </content>
+      <content id="0a31cd1a-2624-42a7-bc86-1a14ce0634fa">
+        <name>КонтейнерыИСумки</name>
+        <description>Контейнеры и сумки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000022</value>
+        </code>
+      </content>
+      <content id="f34b627a-6dc4-4f4a-ad48-7dc71b762ce0">
+        <name>Освещение</name>
+        <description>Освещение</description>
+        <code xsi:type="core:StringValue">
+          <value>000000023</value>
+        </code>
+      </content>
+      <content id="88fb3373-0c58-4b61-885e-c4dc95bf7240">
+        <name>ВерёвкиИКрепления</name>
+        <description>Верёвки и крепления</description>
+        <code xsi:type="core:StringValue">
+          <value>000000024</value>
+        </code>
+      </content>
+      <content id="2e18cd5f-70b6-48d4-a6ba-57f5481806b8">
+        <name>ПоходноеСнаряжение</name>
+        <description>Походное снаряжение</description>
+        <code xsi:type="core:StringValue">
+          <value>000000025</value>
+        </code>
+      </content>
+      <content id="c29bd49f-aee9-4a17-bf58-a9e34b1c402f">
+        <name>Одежда</name>
+        <description>Одежда</description>
+        <code xsi:type="core:StringValue">
+          <value>000000026</value>
+        </code>
+      </content>
+      <content id="d17c61c1-7f55-47c8-ac29-ff329fd7afeb">
+        <name>ЕдаИНапитки</name>
+        <description>Еда и напитки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000027</value>
+        </code>
+      </content>
+      <content id="e7df78de-fb8a-4957-a42e-79a955d5b6de">
+        <name>ПрочееСнаряжение</name>
+        <description>Прочее снаряжение</description>
+        <code xsi:type="core:StringValue">
+          <value>000000028</value>
+        </code>
+      </content>
+    </items>
+    <items id="c3f7d01e-57b1-4ff3-80a6-76c044627b16">
+      <name>Расходуемые</name>
+      <description>Расходуемые</description>
+      <code xsi:type="core:StringValue">
+        <value>000000004</value>
+      </code>
+      <content id="01d06d27-2d12-476b-bc77-200787b3f13e">
+        <name>Зелья</name>
+        <description>Зелья</description>
+        <code xsi:type="core:StringValue">
+          <value>000000035</value>
+        </code>
+      </content>
+      <content id="437f5767-6958-46b0-a4fc-8035e5855c72">
+        <name>Яды</name>
+        <description>Яды</description>
+        <code xsi:type="core:StringValue">
+          <value>000000036</value>
+        </code>
+      </content>
+      <content id="03a2f251-d96e-4e31-800c-bda01bda0967">
+        <name>Масла</name>
+        <description>Масла</description>
+        <code xsi:type="core:StringValue">
+          <value>000000037</value>
+        </code>
+      </content>
+      <content id="9b40510b-38a6-427c-9d45-ed27d48ade15">
+        <name>АлхимическиеСредства</name>
+        <description>Алхимические средства</description>
+        <code xsi:type="core:StringValue">
+          <value>000000038</value>
+        </code>
+      </content>
+      <content id="84258003-ecf5-426d-84f8-1e2d6393b07f">
+        <name>Лекарства</name>
+        <description>Лекарства</description>
+        <code xsi:type="core:StringValue">
+          <value>000000039</value>
+        </code>
+      </content>
+      <content id="5ea0c89f-b6aa-4827-a60f-6934b328256e">
+        <name>ЕдаИОсобыеПрипасы</name>
+        <description>Еда и особые припасы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000040</value>
+        </code>
+      </content>
+      <content id="4533dd10-185d-4098-b620-1009e301e610">
+        <name>ПрочиеРасходуемые</name>
+        <description>Прочие расходуемые</description>
+        <code xsi:type="core:StringValue">
+          <value>000000041</value>
+        </code>
+      </content>
+    </items>
+    <items id="75fea43f-0573-4940-a55c-a30d242129f9">
+      <name>МагическиеПредметы</name>
+      <description>Магические предметы</description>
+      <code xsi:type="core:StringValue">
+        <value>000000005</value>
+      </code>
+      <content id="c5f06cd9-f5c5-40f7-8823-0ae26f07f473">
+        <name>МагическоеОружие</name>
+        <description>Магическое оружие</description>
+        <code xsi:type="core:StringValue">
+          <value>000000042</value>
+        </code>
+      </content>
+      <content id="46a98e03-c6ac-40a4-8b46-1dda7433e3ce">
+        <name>МагическиеДоспехи</name>
+        <description>Магические доспехи</description>
+        <code xsi:type="core:StringValue">
+          <value>000000043</value>
+        </code>
+      </content>
+      <content id="850ea5b0-4704-4272-841e-3ab750cbc77e">
+        <name>МагическиеЩиты</name>
+        <description>Магические щиты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000044</value>
+        </code>
+      </content>
+      <content id="36741b3f-949c-4078-8fc1-d88fd39732d4">
+        <name>ЧудесныеПредметы</name>
+        <description>Чудесные предметы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000045</value>
+        </code>
+      </content>
+      <content id="7c993cda-b6f7-4f9b-8e3c-0d06c7f80b9c">
+        <name>Кольца</name>
+        <description>Кольца</description>
+        <code xsi:type="core:StringValue">
+          <value>000000046</value>
+        </code>
+      </content>
+      <content id="0ef66afa-d18c-4f4a-8d2a-24e83abec47f">
+        <name>Жезлы</name>
+        <description>Жезлы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000047</value>
+        </code>
+      </content>
+      <content id="f61990f1-2c99-4981-82fe-bcab16ce23b3">
+        <name>Посохи</name>
+        <description>Посохи</description>
+        <code xsi:type="core:StringValue">
+          <value>000000048</value>
+        </code>
+      </content>
+      <content id="45dce72b-ddc9-40c4-8813-41c4ff42b588">
+        <name>ВолшебныеПалочки</name>
+        <description>Волшебные палочки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000049</value>
+        </code>
+      </content>
+      <content id="5b64bd54-a234-4541-9cb1-fc88ade9bd3f">
+        <name>Свитки</name>
+        <description>Свитки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000050</value>
+        </code>
+      </content>
+      <content id="044e16df-1435-49e4-9c44-305b77cb6cac">
+        <name>ПрочиеМагическиеПредметы</name>
+        <description>Прочие магические предметы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000051</value>
+        </code>
+      </content>
+    </items>
+    <items id="0ac1fbaa-07d0-4e98-9016-239a6d02622d">
+      <name>ДокументыИКниги</name>
+      <description>Документы и книги</description>
+      <code xsi:type="core:StringValue">
+        <value>000000006</value>
+      </code>
+      <content id="e019cacb-5043-40b7-b593-da0890aeb391">
+        <name>Книги</name>
+        <description>Книги</description>
+        <code xsi:type="core:StringValue">
+          <value>000000052</value>
+        </code>
+      </content>
+      <content id="da8e347f-2c38-4c92-9595-039ef8345ff8">
+        <name>Дневники</name>
+        <description>Дневники</description>
+        <code xsi:type="core:StringValue">
+          <value>000000053</value>
+        </code>
+      </content>
+      <content id="cbe9c6db-03f4-4f4a-88ff-4400ca698b47">
+        <name>Письма</name>
+        <description>Письма</description>
+        <code xsi:type="core:StringValue">
+          <value>000000054</value>
+        </code>
+      </content>
+      <content id="101a872e-4104-4c1e-a623-0ec2bdda32b6">
+        <name>Карты</name>
+        <description>Карты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000055</value>
+        </code>
+      </content>
+      <content id="ce9f5d54-6b5b-447c-81bf-80237c09db52">
+        <name>СвиткиДокументов</name>
+        <description>Свитки документов</description>
+        <code xsi:type="core:StringValue">
+          <value>000000056</value>
+        </code>
+      </content>
+      <content id="d96761b1-a91c-4287-a318-523a308d727a">
+        <name>Контракты</name>
+        <description>Контракты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000057</value>
+        </code>
+      </content>
+      <content id="b5b4a6dc-ccd1-4a95-bf5d-8bc72627ccc1">
+        <name>Записки</name>
+        <description>Записки</description>
+        <code xsi:type="core:StringValue">
+          <value>000000058</value>
+        </code>
+      </content>
+      <content id="ac6eac45-ef3e-40b3-9341-b210cc87cfd4">
+        <name>ПрочиеДокументы</name>
+        <description>Прочие документы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000059</value>
+        </code>
+      </content>
+    </items>
+    <items id="0667f5b9-2559-4dda-8530-45b6c1608b69">
+      <name>Сокровища</name>
+      <description>Сокровища</description>
+      <code xsi:type="core:StringValue">
+        <value>000000007</value>
+      </code>
+      <content id="1e5db1f4-09d2-4efe-8d32-1a2478ba1f1a">
+        <name>ДрагоценныеКамни</name>
+        <description>Драгоценные камни</description>
+        <code xsi:type="core:StringValue">
+          <value>000000060</value>
+        </code>
+      </content>
+      <content id="46f4c754-bbfa-4e7c-9019-3c63521d0154">
+        <name>ЮвелирныеИзделия</name>
+        <description>Ювелирные изделия</description>
+        <code xsi:type="core:StringValue">
+          <value>000000061</value>
+        </code>
+      </content>
+      <content id="69f4a846-9a65-4338-8045-ca597c1f878c">
+        <name>ПроизведенияИскусства</name>
+        <description>Произведения искусства</description>
+        <code xsi:type="core:StringValue">
+          <value>000000062</value>
+        </code>
+      </content>
+      <content id="2ed6fc1e-b867-4b11-9932-b069c78ec410">
+        <name>Реликвии</name>
+        <description>Реликвии</description>
+        <code xsi:type="core:StringValue">
+          <value>000000063</value>
+        </code>
+      </content>
+      <content id="4b1ed5b0-25a4-477a-9c72-6f2f52692fcb">
+        <name>ПрочиеЦенности</name>
+        <description>Прочие ценности</description>
+        <code xsi:type="core:StringValue">
+          <value>000000064</value>
+        </code>
+      </content>
+    </items>
+    <items id="80a9f6b8-cc43-4ea4-ac82-4707140bc4b2">
+      <name>Прочее</name>
+      <description>Прочее</description>
+      <code xsi:type="core:StringValue">
+        <value>000000009</value>
+      </code>
+    </items>
+    <items id="4b498a59-a10b-44a6-9c75-6d1f76aa7916">
+      <name>Инструменты</name>
+      <description>Инструменты</description>
+      <code xsi:type="core:StringValue">
+        <value>000000029</value>
+      </code>
+      <content id="863d5ce0-0825-4a0f-9db4-9e5f29a03834">
+        <name>РемесленныеИнструменты</name>
+        <description>Ремесленные инструменты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000030</value>
+        </code>
+      </content>
+      <content id="393961fe-28b9-4dd1-b9ac-41da609e3a99">
+        <name>МузыкальныеИнструменты</name>
+        <description>Музыкальные инструменты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000031</value>
+        </code>
+      </content>
+      <content id="626164b0-3a77-4478-ace5-a632d85cc07a">
+        <name>ИгровыеНаборы</name>
+        <description>Игровые наборы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000032</value>
+        </code>
+      </content>
+      <content id="a6be1af0-ae15-42c1-9f07-e535291c2ebf">
+        <name>НаборыСпециалиста</name>
+        <description>Наборы специалиста</description>
+        <code xsi:type="core:StringValue">
+          <value>000000033</value>
+        </code>
+      </content>
+      <content id="ab7bb702-7b2b-4f51-a3f2-eddb9073b2ef">
+        <name>ПрочиеИнструменты</name>
+        <description>Прочие инструменты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000034</value>
+        </code>
+      </content>
+    </items>
+    <items id="8e24d6e8-7564-4c58-9915-b19150645612">
+      <name>Материалы</name>
+      <description>Материалы</description>
+      <code xsi:type="core:StringValue">
+        <value>000000065</value>
+      </code>
+      <content id="6d121242-4a20-426e-8cc0-2780bc773e30">
+        <name>РемесленныеМатериалы</name>
+        <description>Ремесленные материалы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000066</value>
+        </code>
+      </content>
+      <content id="7fc92a87-7be9-439a-996d-64834d20fd47">
+        <name>АлхимическиеИнгредиенты</name>
+        <description>Алхимические ингредиенты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000067</value>
+        </code>
+      </content>
+      <content id="46607aa0-8b5f-40b7-b3c3-9b233efd8b63">
+        <name>МагическиеКомпоненты</name>
+        <description>Магические компоненты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000068</value>
+        </code>
+      </content>
+      <content id="c97c499e-3c6b-4afd-a024-436d7a1190d9">
+        <name>ЧастиСуществ</name>
+        <description>Части существ</description>
+        <code xsi:type="core:StringValue">
+          <value>000000069</value>
+        </code>
+      </content>
+      <content id="3f4664d0-a9f8-4a85-9875-c7e02102ba1b">
+        <name>Растения</name>
+        <description>Растения</description>
+        <code xsi:type="core:StringValue">
+          <value>000000070</value>
+        </code>
+      </content>
+      <content id="6c64e5a4-eec5-4cae-bc8a-3e8e88d9bdf8">
+        <name>Минералы</name>
+        <description>Минералы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000071</value>
+        </code>
+      </content>
+      <content id="aa90f4d9-e5cf-40b9-8fc2-6b5bbdff995a">
+        <name>ПрочиеМатериалы</name>
+        <description>Прочие материалы</description>
+        <code xsi:type="core:StringValue">
+          <value>000000072</value>
+        </code>
+      </content>
+    </items>
+    <items id="976291db-7e04-4bb2-a16e-c9d022a2efe1">
+      <name>ТранспортИКрупныеОбъекты</name>
+      <description>Транспорт и крупные объекты</description>
+      <code xsi:type="core:StringValue">
+        <value>000000073</value>
+      </code>
+      <content id="97d7b967-e414-4f19-84fb-eb0b164c3b2a">
+        <name>НаземныйТранспорт</name>
+        <description>Наземный транспорт</description>
+        <code xsi:type="core:StringValue">
+          <value>000000074</value>
+        </code>
+      </content>
+      <content id="8cb56c51-806d-4f2f-9817-ba401bd3ea3b">
+        <name>ВодныйТранспорт</name>
+        <description>Водный транспорт</description>
+        <code xsi:type="core:StringValue">
+          <value>000000075</value>
+        </code>
+      </content>
+      <content id="16e75072-4078-45ba-9779-ba5471408df1">
+        <name>Упряжь</name>
+        <description>Упряжь</description>
+        <code xsi:type="core:StringValue">
+          <value>000000076</value>
+        </code>
+      </content>
+      <content id="4f8e0971-c0be-4c4c-9179-a38f690138ef">
+        <name>ПрочиеКрупныеОбъекты</name>
+        <description>Прочие крупные объекты</description>
+        <code xsi:type="core:StringValue">
+          <value>000000077</value>
+        </code>
+      </content>
+    </items>
+  </predefined>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+</mdclass:Catalog>

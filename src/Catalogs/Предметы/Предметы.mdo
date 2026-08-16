@@ -104,7 +104,6 @@
     <key>ru</key>
     <value>Предмет</value>
   </objectPresentation>
-  <hierarchical>true</hierarchical>
   <levelCount>3</levelCount>
   <foldersOnTop>true</foldersOnTop>
   <owners>Catalog.Кампании</owners>
@@ -117,6 +116,21 @@
   <defaultPresentation>AsDescription</defaultPresentation>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
+  <attributes uuid="b2d4ea77-5697-452f-a849-99f24eddad95">
+    <name>Категория</name>
+    <synonym>
+      <key>ru</key>
+      <value>Категория</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КатегорииПредметов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
   <attributes uuid="6a9874bc-96f5-4c75-a14d-f11e57842afc">
     <name>Описание</name>
     <synonym>
