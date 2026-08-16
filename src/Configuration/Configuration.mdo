@@ -391,6 +391,7 @@
   <commonModules>CommonModule.РегламентныеЗаданияПереопределяемый</commonModules>
   <commonModules>CommonModule.РегламентныеЗаданияСервер</commonModules>
   <commonModules>CommonModule.РегламентныеЗаданияСлужебный</commonModules>
+  <commonModules>CommonModule.СвязиСущностей</commonModules>
   <commonModules>CommonModule.СерверныеОповещения</commonModules>
   <commonModules>CommonModule.СерверныеОповещенияГлобальный</commonModules>
   <commonModules>CommonModule.СерверныеОповещенияКлиент</commonModules>
