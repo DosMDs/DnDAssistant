@@ -415,6 +415,7 @@
   <commonModules>CommonModule.СтроковыеФункцииКлиентСервер</commonModules>
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверЛокализация</commonModules>
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверРФ</commonModules>
+  <commonModules>CommonModule.УправлениеКампаниями</commonModules>
   <commonModules>CommonModule.ФайловаяСистема</commonModules>
   <commonModules>CommonModule.ФайловаяСистемаКлиент</commonModules>
   <commonModules>CommonModule.ФайловаяСистемаСлужебныйКлиент</commonModules>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="8cc98b0f-a3de-4bd0-a3cf-b3656571f58b">
+  <name>УправлениеКампаниями</name>
+  <synonym>
+    <key>ru</key>
+    <value>Управление кампаниями</value>
+  </synonym>
+  <server>true</server>
+  <externalConnection>true</externalConnection>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
