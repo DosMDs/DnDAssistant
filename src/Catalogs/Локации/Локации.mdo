@@ -136,35 +136,6 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <tabularSections uuid="7be7e1ea-c062-4a7c-87d7-d892adcecd66">
-    <producedTypes>
-      <objectType typeId="721974d4-5422-4a6d-acd8-b3b923ec0563" valueTypeId="814fb93e-f6e1-457c-910f-58fbaaecdf27"/>
-      <rowType typeId="4023ed56-d251-4f88-8fc6-61bb6264438a" valueTypeId="686585ea-5b77-438c-88c1-dc63cfcbcac1"/>
-    </producedTypes>
-    <name>Псевдонимы</name>
-    <synonym>
-      <key>ru</key>
-      <value>Псевдонимы</value>
-    </synonym>
-    <attributes uuid="674162d3-c909-4b0b-9fbc-fa13e07a22c6">
-      <name>Псевдоним</name>
-      <synonym>
-        <key>ru</key>
-        <value>Псевдоним</value>
-      </synonym>
-      <type>
-        <types>String</types>
-        <stringQualifiers>
-          <length>150</length>
-        </stringQualifiers>
-      </type>
-      <minValue xsi:type="core:UndefinedValue"/>
-      <maxValue xsi:type="core:UndefinedValue"/>
-      <dataHistory>Use</dataHistory>
-      <fullTextSearch>Use</fullTextSearch>
-    </attributes>
-    <lineNumberLength>9</lineNumberLength>
-  </tabularSections>
   <forms uuid="0ec21828-09fb-40bc-9424-50be02949905">
     <name>ФормаЭлемента</name>
     <synonym>

@@ -164,33 +164,4 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <tabularSections uuid="82a365d7-b398-4237-b655-2a743afc3702">
-    <producedTypes>
-      <objectType typeId="d285f66e-b45c-4179-b1c7-cf970d576e66" valueTypeId="ddb02ac7-e8ca-45eb-82a1-ab6555e7796d"/>
-      <rowType typeId="d0edb896-8f16-4b83-8949-b5e9384a0ad4" valueTypeId="3fa21e78-3834-4902-875b-d89da34bfb29"/>
-    </producedTypes>
-    <name>Псевдонимы</name>
-    <synonym>
-      <key>ru</key>
-      <value>Псевдонимы</value>
-    </synonym>
-    <attributes uuid="08b59cd2-d068-4ec0-9d29-4e93ab893bba">
-      <name>Псевдоним</name>
-      <synonym>
-        <key>ru</key>
-        <value>Псевдоним</value>
-      </synonym>
-      <type>
-        <types>String</types>
-        <stringQualifiers>
-          <length>150</length>
-        </stringQualifiers>
-      </type>
-      <minValue xsi:type="core:UndefinedValue"/>
-      <maxValue xsi:type="core:UndefinedValue"/>
-      <dataHistory>Use</dataHistory>
-      <fullTextSearch>Use</fullTextSearch>
-    </attributes>
-    <lineNumberLength>9</lineNumberLength>
-  </tabularSections>
 </mdclass:Catalog>
