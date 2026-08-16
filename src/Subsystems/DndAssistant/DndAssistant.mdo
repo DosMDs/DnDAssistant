@@ -9,4 +9,5 @@
   <includeInCommandInterface>true</includeInCommandInterface>
   <content>Catalog.Кампании</content>
   <content>Catalog.Персонажи</content>
+  <content>Catalog.NPC</content>
 </mdclass:Subsystem>

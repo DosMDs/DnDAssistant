@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0309c0af-27dc-427e-b7c6-9424509cd9b4">
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b59ad7f8-14eb-4b3f-a947-606d5d31228f">
   <producedTypes>
-    <objectType typeId="b310c880-9b0d-49d5-98f3-00744f3f676c" valueTypeId="53d2e5b7-46ca-4f31-9f33-30e702fee248"/>
-    <refType typeId="4c92eea3-71ba-4f56-a946-3414eb005e0b" valueTypeId="d6157a84-d3ea-473d-a11b-4c984a562a98"/>
-    <selectionType typeId="374f640d-15de-453c-b583-7e60422b7557" valueTypeId="9444bd71-bff1-45d0-9060-f67fb0ab9784"/>
-    <listType typeId="f4a5734b-7cdf-4046-b3ca-f4e4bfafbce4" valueTypeId="324c65b8-89f9-4533-a8dd-880e346ef9bc"/>
-    <managerType typeId="a7b254c6-4262-4574-91a6-72ade502c5e5" valueTypeId="482309e3-b625-4eff-8e41-8ad28de854dd"/>
+    <objectType typeId="e2047683-d426-49fe-8ca9-424effb7212b" valueTypeId="0caf7264-4b34-44d5-b11a-6fac5f250e8d"/>
+    <refType typeId="4ce834c2-7b53-4e40-ab5a-e06161e28259" valueTypeId="ca6403b5-9f32-4d1e-9d51-fa29fb4cc9a3"/>
+    <selectionType typeId="74e701c2-2544-4558-821f-bc8a181db7c5" valueTypeId="c1d73575-2dec-485a-bfa5-6b4beb9ad0c0"/>
+    <listType typeId="d9f46467-8505-4d31-a1fd-15b212c4b133" valueTypeId="ce2f47f0-3045-4e6d-9225-6b6c3a0ab7bf"/>
+    <managerType typeId="9e95077e-d13f-4291-8371-256b4e29981e" valueTypeId="730e5b65-0768-4f89-a0d4-41e0f5cec28e"/>
   </producedTypes>
-  <name>Персонажи</name>
+  <name>NPC</name>
   <synonym>
     <key>ru</key>
-    <value>Персонажи</value>
+    <value>NPC</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
-  <inputByString>Catalog.Персонажи.StandardAttribute.Code</inputByString>
-  <inputByString>Catalog.Персонажи.StandardAttribute.Description</inputByString>
+  <inputByString>Catalog.NPC.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.NPC.StandardAttribute.Description</inputByString>
   <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
   <standardAttributes>
     <dataHistory>Use</dataHistory>
@@ -96,10 +96,6 @@
   <createOnInput>Use</createOnInput>
   <dataLockControlMode>Managed</dataLockControlMode>
   <fullTextSearch>Use</fullTextSearch>
-  <objectPresentation>
-    <key>ru</key>
-    <value>Персонаж</value>
-  </objectPresentation>
   <levelCount>2</levelCount>
   <foldersOnTop>true</foldersOnTop>
   <owners>Catalog.Кампании</owners>
@@ -112,50 +108,7 @@
   <defaultPresentation>AsDescription</defaultPresentation>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
-  <attributes uuid="ce97ce76-58b5-4997-b622-7d8b4a45a020">
-    <name>Уровень</name>
-    <synonym>
-      <key>ru</key>
-      <value>Уровень</value>
-    </synonym>
-    <type>
-      <types>Number</types>
-      <numberQualifiers>
-        <precision>2</precision>
-        <nonNegative>true</nonNegative>
-      </numberQualifiers>
-    </type>
-    <minValue xsi:type="core:StringValue">
-      <value>1</value>
-    </minValue>
-    <maxValue xsi:type="core:StringValue">
-      <value>20</value>
-    </maxValue>
-    <fillValue xsi:type="core:NumberValue">
-      <value>1</value>
-    </fillValue>
-    <fullTextSearch>Use</fullTextSearch>
-    <dataHistory>Use</dataHistory>
-  </attributes>
-  <attributes uuid="0de9f9f7-4ea0-428a-98db-123540644c70">
-    <name>Раса</name>
-    <synonym>
-      <key>ru</key>
-      <value>Раса</value>
-    </synonym>
-    <type>
-      <types>String</types>
-      <stringQualifiers>
-        <length>100</length>
-      </stringQualifiers>
-    </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
-    <fillValue xsi:type="core:UndefinedValue"/>
-    <fullTextSearch>Use</fullTextSearch>
-    <dataHistory>Use</dataHistory>
-  </attributes>
-  <attributes uuid="4faed6c8-2e0a-4b77-8d66-9c8f01e8fcee">
+  <attributes uuid="42764d0d-f5b9-47ea-a84b-689e32380191">
     <name>Описание</name>
     <synonym>
       <key>ru</key>
@@ -171,11 +124,11 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="04c5f3f4-b1aa-484c-a08c-26fe70b05dd9">
-    <name>Класс</name>
+  <attributes uuid="0402f9cd-a863-4cf5-8fe0-7b6080f30c38">
+    <name>Профессия</name>
     <synonym>
       <key>ru</key>
-      <value>Класс</value>
+      <value>Профессия</value>
     </synonym>
     <type>
       <types>String</types>
@@ -189,17 +142,35 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <tabularSections uuid="d9f91427-288d-492f-aeeb-3f08764a20c2">
+  <attributes uuid="ebb1f997-278d-4016-9c08-4e7192637f81">
+    <name>Раса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Раса</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="82a365d7-b398-4237-b655-2a743afc3702">
     <producedTypes>
-      <objectType typeId="63b27481-6b9f-4e7f-8ec3-7f5d5dbcc54a" valueTypeId="73a9a4c7-09dd-4b03-8174-e2425ea2ecf2"/>
-      <rowType typeId="c9f821de-9bbe-4a5d-9155-091bca6ed435" valueTypeId="db9940af-ba01-4048-a833-bfd78673f405"/>
+      <objectType typeId="d285f66e-b45c-4179-b1c7-cf970d576e66" valueTypeId="ddb02ac7-e8ca-45eb-82a1-ab6555e7796d"/>
+      <rowType typeId="d0edb896-8f16-4b83-8949-b5e9384a0ad4" valueTypeId="3fa21e78-3834-4902-875b-d89da34bfb29"/>
     </producedTypes>
     <name>Псевдонимы</name>
     <synonym>
       <key>ru</key>
       <value>Псевдонимы</value>
     </synonym>
-    <attributes uuid="2a76ca47-23fd-4af6-95f4-ee270d9b9643">
+    <attributes uuid="08b59cd2-d068-4ec0-9d29-4e93ab893bba">
       <name>Псевдоним</name>
       <synonym>
         <key>ru</key>
