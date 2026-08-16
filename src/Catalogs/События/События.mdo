@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="115707ef-d069-4c2e-b9dd-eb316f8c831b">
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1f717b6e-cab5-4764-9d21-50e02b969071">
   <producedTypes>
-    <objectType typeId="b8265cf7-7cdd-4f5a-b35a-0bf99403803d" valueTypeId="4c3ea682-4829-45b5-9ffa-e3770a621155"/>
-    <refType typeId="b9064c5b-3f60-41da-ab7b-56ab7436495a" valueTypeId="42d0fb12-19f7-4cf3-95cf-8373d0d1a3bc"/>
-    <selectionType typeId="dae39fdc-dfc1-4f90-bd93-596ffaf8c821" valueTypeId="fca9612a-f626-41b5-855f-0eff689823b6"/>
-    <listType typeId="1d9e9379-336a-4aba-be3f-b59c65420807" valueTypeId="73b17bee-cf9e-4746-96e9-0ee484c22df9"/>
-    <managerType typeId="fd5e5e43-b132-4fa6-a103-74efce0f4cab" valueTypeId="bf18481b-3040-4fa2-a964-5163237b0fc3"/>
+    <objectType typeId="39ae7c67-3a3f-49ee-a842-ae2e179f91e1" valueTypeId="ce42261d-2d4d-4160-9a54-e1fd0ac74d37"/>
+    <refType typeId="799372be-2fd7-400e-bb2e-7686284b9c22" valueTypeId="15de0f6c-b942-49c8-945d-ef5d8ff04fa9"/>
+    <selectionType typeId="92ba93b8-7468-4131-b484-5c8b662feb03" valueTypeId="ea3cf2b9-cfd3-46f0-8954-909cef575eca"/>
+    <listType typeId="a435d79c-1a5f-4425-8027-3540a250ae88" valueTypeId="01b28789-a9f4-4d42-b5fa-733bb988f315"/>
+    <managerType typeId="523a567e-6f73-41a7-909c-878c5ecd2efd" valueTypeId="a9db84a2-91b9-41ad-a265-5d63d2448f24"/>
   </producedTypes>
   <name>События</name>
   <synonym>
@@ -112,7 +112,7 @@
   <defaultPresentation>AsDescription</defaultPresentation>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
-  <attributes uuid="cd7842ae-5a19-4613-a195-efe03992b4a3">
+  <attributes uuid="d75f3471-9730-4c30-986a-7fd513c0e7a3">
     <name>Начало</name>
     <synonym>
       <key>ru</key>
@@ -130,7 +130,7 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="a8bb9410-08b6-4897-a868-528cebbc59ee">
+  <attributes uuid="e26f857c-d01d-4e29-9de3-88196d18191c">
     <name>Окончание</name>
     <synonym>
       <key>ru</key>
@@ -148,7 +148,7 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="a92b47e6-e66e-4eee-8818-e253421180aa">
+  <attributes uuid="241e6254-cfc1-4089-a1ab-e7899e787d5e">
     <name>Статус</name>
     <synonym>
       <key>ru</key>
@@ -163,7 +163,7 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="77b2a7c6-28b5-4de7-8224-b8c3fd5d1fb9">
+  <attributes uuid="064a62a8-1002-4ab6-bb55-54bd8e57802d">
     <name>Описание</name>
     <synonym>
       <key>ru</key>

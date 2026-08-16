@@ -13,6 +13,7 @@
     <types>CatalogRef.Квесты</types>
     <types>CatalogRef.Персонажи</types>
     <types>CatalogRef.NPC</types>
+    <types>CatalogRef.События</types>
     <types>CatalogRef.Организации</types>
     <types>CatalogRef.Заметки</types>
     <types>CatalogRef.Локации</types>

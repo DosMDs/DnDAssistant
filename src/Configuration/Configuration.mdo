@@ -400,6 +400,7 @@
   <commonModules>CommonModule.СерверныеОповещенияСлужебныйВызовСервера</commonModules>
   <commonModules>CommonModule.СерверныеОповещенияСлужебныйКлиентСервер</commonModules>
   <commonModules>CommonModule.СерверныеОповещенияСлужебныйПовтИсп</commonModules>
+  <commonModules>CommonModule.СобытияКалендаря</commonModules>
   <commonModules>CommonModule.СтандартныеПодсистемыВызовСервера</commonModules>
   <commonModules>CommonModule.СтандартныеПодсистемыГлобальный</commonModules>
   <commonModules>CommonModule.СтандартныеПодсистемыКлиент</commonModules>
