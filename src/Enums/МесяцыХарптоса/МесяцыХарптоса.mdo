@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fdd7b651-41a6-493d-a094-671cc3af4d6b">
+  <producedTypes>
+    <refType typeId="907b06e7-751f-47ef-aaa7-84a40844c9f1" valueTypeId="85d3b6ee-e192-400c-a187-bf97713caf53"/>
+    <listType typeId="76a7d6cb-27bd-4403-ac67-e21d2c686fe5" valueTypeId="27c849d8-bc30-440b-bd93-76434fc627e2"/>
+    <managerType typeId="9ba03ac4-3296-40d1-aefd-df45b62f61da" valueTypeId="3b0b40a6-2a6f-44d7-b81e-42e346484689"/>
+  </producedTypes>
+  <name>МесяцыХарптоса</name>
+  <synonym>
+    <key>ru</key>
+    <value>Месяцы харптоса</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="13b54471-9446-40c9-b245-5a6fd6175fd4">
+    <name>Хаммер</name>
+    <synonym>
+      <key>ru</key>
+      <value>Хаммер</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="f6346747-e7bb-4c8b-a629-a2742719d143">
+    <name>Алтуриак</name>
+    <synonym>
+      <key>ru</key>
+      <value>Алтуриак</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="270e1367-b9c5-42ed-9f8b-7ce88496b500">
+    <name>Чес</name>
+    <synonym>
+      <key>ru</key>
+      <value>Чес</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="96b1a8c9-4c1e-4b12-91f7-4d05f10b2b7d">
+    <name>Тарсах</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тарсах</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="45631e6a-98ea-4ca0-be7b-da3686b800a5">
+    <name>Миртул</name>
+    <synonym>
+      <key>ru</key>
+      <value>Миртул</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="10310e23-9380-45d0-870a-28fbf36b7ba4">
+    <name>Киторн</name>
+    <synonym>
+      <key>ru</key>
+      <value>Киторн</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="24eee6bb-d532-4e85-8c23-ed2da52684a6">
+    <name>Флеймрул</name>
+    <synonym>
+      <key>ru</key>
+      <value>Флеймрул</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="963beb75-c155-4181-bd18-d27c56454779">
+    <name>Элеасис</name>
+    <synonym>
+      <key>ru</key>
+      <value>Элеасис</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="e8918799-183e-4f54-a0ec-b76451927d31">
+    <name>Элейнт</name>
+    <synonym>
+      <key>ru</key>
+      <value>Элейнт</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="21f6dad3-f0c4-467e-9b25-ca330ac238a6">
+    <name>Марпенот</name>
+    <synonym>
+      <key>ru</key>
+      <value>Марпенот</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="22c727cd-0252-4791-9e67-31e53076bfd9">
+    <name>Уктар</name>
+    <synonym>
+      <key>ru</key>
+      <value>Уктар</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="0b582747-6301-4770-b168-046fb430a0d0">
+    <name>Найтол</name>
+    <synonym>
+      <key>ru</key>
+      <value>Найтол</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

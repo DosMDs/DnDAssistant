@@ -22,4 +22,6 @@
   <content>InformationRegister.СвязиСущностей</content>
   <content>DefinedType.СущностиКампании</content>
   <content>InformationRegister.ИгровоеВремяКампаний</content>
+  <content>Enum.МесяцыХарптоса</content>
+  <content>Enum.МеждудневьяХарптоса</content>
 </mdclass:Subsystem>

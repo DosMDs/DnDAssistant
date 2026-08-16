@@ -353,6 +353,7 @@
   <commonModules>CommonModule.ЖурналРегистрацииВызовСервера</commonModules>
   <commonModules>CommonModule.ЖурналРегистрацииКлиент</commonModules>
   <commonModules>CommonModule.ИгровоеВремя</commonModules>
+  <commonModules>CommonModule.ИгровойКалендарь</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСП</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиент</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиентПовтИсп</commonModules>
@@ -540,6 +541,8 @@
   <catalogs>Catalog.Пользователи</catalogs>
   <catalogs>Catalog.Предметы</catalogs>
   <catalogs>Catalog.ТипыСвязей</catalogs>
+  <enums>Enum.МеждудневьяХарптоса</enums>
+  <enums>Enum.МесяцыХарптоса</enums>
   <enums>Enum.ПорядокОбработчиковОбновления</enums>
   <enums>Enum.РежимыВыполненияОбработчиков</enums>
   <enums>Enum.РежимыВыполненияОтложенныхОбработчиков</enums>

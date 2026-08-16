@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a2ee69de-5e93-4d88-85af-6fb972c88731">
+  <producedTypes>
+    <refType typeId="c40a89c4-d429-47f5-9b82-dca4cb529021" valueTypeId="84bce3f1-6c4a-4150-9e4a-7c3e2e3fdecb"/>
+    <listType typeId="3c694f50-5703-4343-bc91-36e1e5838287" valueTypeId="03b9c8ac-45c6-4e0a-91f8-2429ce1bc221"/>
+    <managerType typeId="20ff7c0f-5b7a-49d0-9867-2ec5620ba006" valueTypeId="301555bb-4d89-446c-bd15-af37b61dc668"/>
+  </producedTypes>
+  <name>МеждудневьяХарптоса</name>
+  <synonym>
+    <key>ru</key>
+    <value>Междудневья харптоса</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="56949000-9109-41db-a6b6-ae13a106e1c3">
+    <name>СерединаЗимы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Середина зимы</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="4d210729-2670-460d-a7a8-de7b0b25e589">
+    <name>Зеленотравье</name>
+    <synonym>
+      <key>ru</key>
+      <value>Зеленотравье</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="e7fb1727-e9f1-49a1-b294-7dc6d37a34d3">
+    <name>Солнцеворот</name>
+    <synonym>
+      <key>ru</key>
+      <value>Солнцеворот</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="f5e6d1fb-85e3-4770-9291-d2041784c63b">
+    <name>ВстречаЩитов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Встреча щитов</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="53373f57-b584-40ff-bc9a-aa652b1a0305">
+    <name>ПраздникУрожая</name>
+    <synonym>
+      <key>ru</key>
+      <value>Праздник урожая</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="436bfed9-b240-46cc-956d-39c3cd3b8828">
+    <name>ПраздникЛуны</name>
+    <synonym>
+      <key>ru</key>
+      <value>Праздник луны</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>
