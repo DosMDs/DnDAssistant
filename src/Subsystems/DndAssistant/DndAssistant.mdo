@@ -10,4 +10,5 @@
   <content>Catalog.Кампании</content>
   <content>Catalog.Персонажи</content>
   <content>Catalog.NPC</content>
+  <content>Catalog.Локации</content>
 </mdclass:Subsystem>
