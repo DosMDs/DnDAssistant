@@ -540,6 +540,7 @@
   <catalogs>Catalog.Персонажи</catalogs>
   <catalogs>Catalog.Пользователи</catalogs>
   <catalogs>Catalog.Предметы</catalogs>
+  <catalogs>Catalog.События</catalogs>
   <catalogs>Catalog.ТипыСвязей</catalogs>
   <enums>Enum.МеждудневьяХарптоса</enums>
   <enums>Enum.МесяцыХарптоса</enums>
@@ -549,6 +550,7 @@
   <enums>Enum.СпособыРедактированияЭлектронныхПисем</enums>
   <enums>Enum.СтатусыКвестов</enums>
   <enums>Enum.СтатусыОбработчиковОбновления</enums>
+  <enums>Enum.СтатусыСобытий</enums>
   <enums>Enum.ТипыДанныхКэшаПрограммныхИнтерфейсов</enums>
   <enums>Enum.ФорматыВыгрузкиОбъектов</enums>
   <enums>Enum.ФорматыСохраненияОтчетов</enums>

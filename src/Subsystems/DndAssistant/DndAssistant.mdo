@@ -24,4 +24,6 @@
   <content>InformationRegister.ИгровоеВремяКампаний</content>
   <content>Enum.МесяцыХарптоса</content>
   <content>Enum.МеждудневьяХарптоса</content>
+  <content>Enum.СтатусыСобытий</content>
+  <content>Catalog.События</content>
 </mdclass:Subsystem>
