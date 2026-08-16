@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="ee71f258-1b31-44bb-91e4-e5e045f1a87c">
+  <name>ОбновлениеИнформационнойБазыDndAssistant</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обновление информационной базы dnd assistant</value>
+  </synonym>
+  <server>true</server>
+  <externalConnection>true</externalConnection>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
