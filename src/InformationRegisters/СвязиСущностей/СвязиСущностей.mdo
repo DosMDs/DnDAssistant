@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2b7bb0e6-155a-4251-b44e-e54d188712a4">
+  <producedTypes>
+    <selectionType typeId="e349df4e-8e25-449f-b02e-588efb62fb38" valueTypeId="3c8f635b-0d62-4a85-bfa7-e66082416513"/>
+    <listType typeId="97e508ba-e06c-4766-bd9e-eed3e0c9549c" valueTypeId="26ab5b86-42fa-4e99-ab45-786caeabdd5c"/>
+    <managerType typeId="143b5be7-dd1c-4b4f-8817-0f384916bd37" valueTypeId="8be92eeb-6cb2-4682-964a-209d02c5b4cb"/>
+    <recordSetType typeId="f2a24ba3-f8a3-4d29-97dc-a02759312ef3" valueTypeId="a1839e08-a591-479d-9324-2d9db29c7c91"/>
+    <recordKeyType typeId="a670ae7f-392c-43e9-b7b0-b5d84a9ffee9" valueTypeId="c0d4851f-9729-46f7-b33d-a7a8a7211d84"/>
+    <recordType typeId="73f0c6e7-6bd8-4f2c-8544-3f0937d1aca9" valueTypeId="2c91a023-0355-4c18-b96b-102bcce3e414"/>
+    <recordManagerType typeId="a6d90045-35f2-4c9f-9ffe-4926d26c743b" valueTypeId="bf2270f4-4043-40ba-86fc-5866d6395822"/>
+  </producedTypes>
+  <name>СвязиСущностей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Связи сущностей</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Связь</value>
+  </recordPresentation>
+  <attributes uuid="0dbb1009-417b-43f7-a85b-5887c72191e7">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>500</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+  </attributes>
+  <dimensions uuid="6493de33-2ffc-417f-a609-0ca399701220">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="2c45d932-527e-4666-b768-7f3a2ac9a026">
+    <name>Источник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Источник</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СущностиКампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="61ac1d10-f3bb-4d9a-bcaf-12e65e33aea2">
+    <name>ТипСвязи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип связи</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ТипыСвязей</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="4e92b241-0336-44ff-a59e-d7d5c7cfd42e">
+    <name>Назначение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Назначение</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СущностиКампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

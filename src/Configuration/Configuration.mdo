@@ -454,6 +454,7 @@
   <definedTypes>DefinedType.Организация</definedTypes>
   <definedTypes>DefinedType.Подразделение</definedTypes>
   <definedTypes>DefinedType.Пользователь</definedTypes>
+  <definedTypes>DefinedType.СущностиКампании</definedTypes>
   <definedTypes>DefinedType.ФизическоеЛицо</definedTypes>
   <commonCommands>CommonCommand.ВремяВПриложении</commonCommands>
   <commonCommands>CommonCommand.ПредупрежденияПриЗавершенииРаботы</commonCommands>
@@ -535,6 +536,7 @@
   <catalogs>Catalog.Персонажи</catalogs>
   <catalogs>Catalog.Пользователи</catalogs>
   <catalogs>Catalog.Предметы</catalogs>
+  <catalogs>Catalog.ТипыСвязей</catalogs>
   <enums>Enum.ПорядокОбработчиковОбновления</enums>
   <enums>Enum.РежимыВыполненияОбработчиков</enums>
   <enums>Enum.РежимыВыполненияОтложенныхОбработчиков</enums>
@@ -575,6 +577,7 @@
   <informationRegisters>InformationRegister.Псеводнимы</informationRegisters>
   <informationRegisters>InformationRegister.СведенияОПользователях</informationRegisters>
   <informationRegisters>InformationRegister.СвойстваРасширений</informationRegisters>
+  <informationRegisters>InformationRegister.СвязиСущностей</informationRegisters>
   <informationRegisters>InformationRegister.СоставыГруппПользователей</informationRegisters>
   <informationRegisters>InformationRegister.УдалитьБезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
   <informationRegisters>InformationRegister.ФиксацияОбработкиДанныхОбработчиками</informationRegisters>

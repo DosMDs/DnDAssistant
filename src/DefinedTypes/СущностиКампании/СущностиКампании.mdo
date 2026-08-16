@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DefinedType xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="53a6ea62-0acc-4df2-aff8-0403b56ad6f8">
+  <producedTypes>
+    <containerType typeId="fdab7d33-96d3-4471-90d0-953878f48a81" valueTypeId="ef447abb-65ef-4871-af76-75e12d4897f3"/>
+  </producedTypes>
+  <name>СущностиКампании</name>
+  <synonym>
+    <key>ru</key>
+    <value>Сущности кампании</value>
+  </synonym>
+  <type>
+    <types>CatalogRef.Предметы</types>
+    <types>CatalogRef.Квесты</types>
+    <types>CatalogRef.Персонажи</types>
+    <types>CatalogRef.NPC</types>
+    <types>CatalogRef.Организации</types>
+    <types>CatalogRef.Заметки</types>
+    <types>CatalogRef.Локации</types>
+  </type>
+</mdclass:DefinedType>

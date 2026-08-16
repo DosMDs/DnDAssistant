@@ -28,13 +28,7 @@
       <value>Объект</value>
     </synonym>
     <type>
-      <types>CatalogRef.Предметы</types>
-      <types>CatalogRef.Квесты</types>
-      <types>CatalogRef.Персонажи</types>
-      <types>CatalogRef.NPC</types>
-      <types>CatalogRef.Организации</types>
-      <types>CatalogRef.Пользователи</types>
-      <types>CatalogRef.Локации</types>
+      <types>DefinedType.СущностиКампании</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>

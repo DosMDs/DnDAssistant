@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1d1ed22c-e624-45d9-ba01-588d9ee87a8e">
+  <producedTypes>
+    <objectType typeId="5bbe8b87-5412-4cb0-a4f8-1b9cd31c7ccb" valueTypeId="73f60436-d461-4320-b969-672b948ac0b0"/>
+    <refType typeId="27c9edd4-4a0b-41e2-a536-9aa29575f20b" valueTypeId="384fec3b-67cc-441d-93e1-4c6c45289142"/>
+    <selectionType typeId="8aab705d-5401-49f3-ab4d-c479e2fe420e" valueTypeId="652e443b-c427-4931-96c9-74ed42aa5b07"/>
+    <listType typeId="deb3dd2c-ad28-4978-8eba-dc5c692b625d" valueTypeId="fd96585a-4398-4952-924b-278b7def77be"/>
+    <managerType typeId="e4bcea45-6990-490a-84a2-983297d73573" valueTypeId="d63a8b5a-eea8-4324-a5eb-b0818894c89a"/>
+  </producedTypes>
+  <name>ТипыСвязей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Типы связей</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.ТипыСвязей.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.ТипыСвязей.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <objectPresentation>
+    <key>ru</key>
+    <value>ТипСвязи</value>
+  </objectPresentation>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>150</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <predefined>
+    <items id="19d21fa6-2aa8-40e0-8cd9-d1e2458f0d40">
+      <name>СвязанС</name>
+      <description>Связан с</description>
+      <code xsi:type="core:StringValue">
+        <value>000000001</value>
+      </code>
+    </items>
+    <items id="dc19ae27-4f62-4d46-9754-11891f80bf76">
+      <name>НаходитсяВ</name>
+      <description>Находится в</description>
+      <code xsi:type="core:StringValue">
+        <value>000000002</value>
+      </code>
+    </items>
+    <items id="9de7cd15-7c0a-49a6-b704-436cf08806f9">
+      <name>Владеет</name>
+      <description>Владеет</description>
+      <code xsi:type="core:StringValue">
+        <value>000000003</value>
+      </code>
+    </items>
+    <items id="7884cc48-22d6-4d50-8f25-7964b0c2c9e0">
+      <name>СостоитВ</name>
+      <description>Состоит в</description>
+      <code xsi:type="core:StringValue">
+        <value>000000004</value>
+      </code>
+    </items>
+    <items id="c8a5a129-7c10-4069-8202-29607fa7cd85">
+      <name>ВыдалКвест</name>
+      <description>Выдал квест</description>
+      <code xsi:type="core:StringValue">
+        <value>000000005</value>
+      </code>
+    </items>
+    <items id="c3a46fb5-5102-48ee-9714-2e2b630f9df1">
+      <name>Союзник</name>
+      <description>Союзник</description>
+      <code xsi:type="core:StringValue">
+        <value>000000006</value>
+      </code>
+    </items>
+    <items id="bb87737b-ae71-4404-b42d-6e48243a33c7">
+      <name>Враг</name>
+      <description>Враг</description>
+      <code xsi:type="core:StringValue">
+        <value>000000007</value>
+      </code>
+    </items>
+    <items id="72d07527-c8b6-406e-859d-3bfe86390262">
+      <name>Знаком</name>
+      <description>Знаком</description>
+      <code xsi:type="core:StringValue">
+        <value>000000008</value>
+      </code>
+    </items>
+  </predefined>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <attributes uuid="834607ef-0be1-45df-9cc7-4a82e338c438">
+    <name>ОбратноеНаименование</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обратное наименование</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="35ead5a4-9918-4f56-a8ab-533482512960">
+    <name>Симметричная</name>
+    <synonym>
+      <key>ru</key>
+      <value>Симметричная</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+</mdclass:Catalog>
