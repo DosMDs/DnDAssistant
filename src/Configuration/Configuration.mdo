@@ -532,6 +532,7 @@
   <catalogs>Catalog.Организации</catalogs>
   <catalogs>Catalog.Персонажи</catalogs>
   <catalogs>Catalog.Пользователи</catalogs>
+  <catalogs>Catalog.Предметы</catalogs>
   <enums>Enum.ПорядокОбработчиковОбновления</enums>
   <enums>Enum.РежимыВыполненияОбработчиков</enums>
   <enums>Enum.РежимыВыполненияОтложенныхОбработчиков</enums>

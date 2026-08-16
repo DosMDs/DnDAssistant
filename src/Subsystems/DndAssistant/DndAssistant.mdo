@@ -14,4 +14,5 @@
   <content>Catalog.Организации</content>
   <content>Enum.СтатусыКвестов</content>
   <content>Catalog.Квесты</content>
+  <content>Catalog.Предметы</content>
 </mdclass:Subsystem>
