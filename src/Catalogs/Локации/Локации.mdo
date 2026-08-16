@@ -72,7 +72,7 @@
     <name>Parent</name>
     <synonym>
       <key>ru</key>
-      <value>Локация</value>
+      <value>Родительская локация</value>
     </synonym>
     <fillFromFillingValue>true</fillFromFillingValue>
     <fillValue xsi:type="core:UndefinedValue"/>
@@ -119,6 +119,7 @@
   <defaultPresentation>AsDescription</defaultPresentation>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.Локации.Form.ФормаЭлемента</defaultObjectForm>
   <attributes uuid="a4db273b-8017-4e71-9d42-96b8fdb38f4f">
     <name>Описание</name>
     <synonym>
@@ -164,4 +165,13 @@
     </attributes>
     <lineNumberLength>9</lineNumberLength>
   </tabularSections>
+  <forms uuid="0ec21828-09fb-40bc-9424-50be02949905">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
 </mdclass:Catalog>
