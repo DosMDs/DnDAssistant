@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d741c3aa-e0d6-4c32-899d-3072ab84e6ec">
+  <producedTypes>
+    <selectionType typeId="ae703786-7245-433e-aebe-0c6555f6205e" valueTypeId="59c37f42-9909-495f-aabb-493a21a1bd25"/>
+    <listType typeId="9b4b835a-2348-4e6e-9286-ccf9b30f01ae" valueTypeId="c92e1b7d-40bd-4188-8dcb-e9c30b71dc50"/>
+    <managerType typeId="dc7ed738-fa94-4f4c-a2d7-9d3ecc7938f5" valueTypeId="c19324f0-2957-4341-b478-8ca5badd5708"/>
+    <recordSetType typeId="cbb053f2-8f6f-4a9e-830e-e4ae2a847ff8" valueTypeId="1f978e58-d0f0-4f5c-b96a-8884f35c3614"/>
+    <recordKeyType typeId="13b20110-0a3e-4cfa-b266-62898af6062b" valueTypeId="78f5b7e7-d228-4621-9b5e-58e612d37090"/>
+    <recordType typeId="e8c70849-582b-41a6-82e2-5fa8ec6cc431" valueTypeId="8700ff4c-03ac-4868-8fd6-6c9743477e25"/>
+    <recordManagerType typeId="cbb41549-bb3f-4f6e-a507-3bc19bcd20cb" valueTypeId="ae81792e-99d9-46d7-8f6d-3df2454689f8"/>
+  </producedTypes>
+  <name>Псеводнимы</name>
+  <synonym>
+    <key>ru</key>
+    <value>Псеводнимы</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Псевдоним</value>
+  </recordPresentation>
+  <resources uuid="7eeba1c4-3c85-46c7-ab01-ae5835982f42">
+    <name>Объект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Предметы</types>
+      <types>CatalogRef.Квесты</types>
+      <types>CatalogRef.Персонажи</types>
+      <types>CatalogRef.NPC</types>
+      <types>CatalogRef.Организации</types>
+      <types>CatalogRef.Пользователи</types>
+      <types>CatalogRef.Локации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="407e253f-c31d-407b-a1d3-4899b3e3d33a">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="c0c0f925-88fd-42f3-aaea-c6eb8368ac18">
+    <name>Псевдоним</name>
+    <synonym>
+      <key>ru</key>
+      <value>Псевдоним</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>150</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>
