@@ -527,6 +527,7 @@
   <catalogs>Catalog.ИдентификаторыОбъектовМетаданных</catalogs>
   <catalogs>Catalog.ИдентификаторыОбъектовРасширений</catalogs>
   <catalogs>Catalog.Кампании</catalogs>
+  <catalogs>Catalog.Квесты</catalogs>
   <catalogs>Catalog.Локации</catalogs>
   <catalogs>Catalog.Организации</catalogs>
   <catalogs>Catalog.Персонажи</catalogs>
@@ -535,6 +536,7 @@
   <enums>Enum.РежимыВыполненияОбработчиков</enums>
   <enums>Enum.РежимыВыполненияОтложенныхОбработчиков</enums>
   <enums>Enum.СпособыРедактированияЭлектронныхПисем</enums>
+  <enums>Enum.СтатусыКвестов</enums>
   <enums>Enum.СтатусыОбработчиковОбновления</enums>
   <enums>Enum.ТипыДанныхКэшаПрограммныхИнтерфейсов</enums>
   <enums>Enum.ФорматыВыгрузкиОбъектов</enums>

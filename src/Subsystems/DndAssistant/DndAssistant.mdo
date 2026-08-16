@@ -12,4 +12,6 @@
   <content>Catalog.NPC</content>
   <content>Catalog.Локации</content>
   <content>Catalog.Организации</content>
+  <content>Enum.СтатусыКвестов</content>
+  <content>Catalog.Квесты</content>
 </mdclass:Subsystem>
