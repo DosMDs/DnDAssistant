@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="cedc7975-6081-47ea-a710-5881494cee7d">
+  <producedTypes>
+    <objectType typeId="6b32e3d1-95f2-4392-bcc1-942fe5032da5" valueTypeId="3a635c80-e6ae-46d6-bcaa-18b5acbbed6b"/>
+    <refType typeId="7dcdaab1-fea8-4314-b097-86cabb13af43" valueTypeId="8dc83773-53b5-4217-82f2-2f70352828e8"/>
+    <selectionType typeId="c756d0c6-5413-434d-ae68-edd42635acfe" valueTypeId="4eb49945-4c8f-477c-95c4-a7a4eaf49204"/>
+    <listType typeId="705b553b-d7ce-407f-8203-97fd725b1777" valueTypeId="1d30c400-22d5-4374-8463-e9a98b4da8c3"/>
+    <managerType typeId="f822b72e-0984-49e1-850f-dff35e08ac06" valueTypeId="dfa07df5-7dbb-4a5d-a000-c62b8eb2f25f"/>
+  </producedTypes>
+  <name>Кампании</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кампании</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.Кампании.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.Кампании.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <objectPresentation>
+    <key>ru</key>
+    <value>Кампания</value>
+  </objectPresentation>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>150</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <attributes uuid="6b496620-0358-4879-bcf8-4c0ff1cb6097">
+    <name>Описание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Описание</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="1c63b26c-941d-4f48-9f25-6ef9cfaae1ff">
+    <name>Активна</name>
+    <synonym>
+      <key>ru</key>
+      <value>Активна</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+</mdclass:Catalog>
