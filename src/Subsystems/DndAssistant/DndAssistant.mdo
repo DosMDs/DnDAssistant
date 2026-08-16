@@ -21,4 +21,5 @@
   <content>Catalog.ТипыСвязей</content>
   <content>InformationRegister.СвязиСущностей</content>
   <content>DefinedType.СущностиКампании</content>
+  <content>InformationRegister.ИгровоеВремяКампаний</content>
 </mdclass:Subsystem>

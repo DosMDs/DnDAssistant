@@ -352,6 +352,7 @@
   <commonModules>CommonModule.ЖурналРегистрации</commonModules>
   <commonModules>CommonModule.ЖурналРегистрацииВызовСервера</commonModules>
   <commonModules>CommonModule.ЖурналРегистрацииКлиент</commonModules>
+  <commonModules>CommonModule.ИгровоеВремя</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСП</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиент</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиентПовтИсп</commonModules>
@@ -565,6 +566,7 @@
   <informationRegisters>InformationRegister.ВерсииПодсистем</informationRegisters>
   <informationRegisters>InformationRegister.ДанныеОбработанныеВЦентральномУзлеРИБ</informationRegisters>
   <informationRegisters>InformationRegister.ДлительныеОперации</informationRegisters>
+  <informationRegisters>InformationRegister.ИгровоеВремяКампаний</informationRegisters>
   <informationRegisters>InformationRegister.ИдентификаторыОбъектовВерсийРасширений</informationRegisters>
   <informationRegisters>InformationRegister.ИерархияГруппПользователей</informationRegisters>
   <informationRegisters>InformationRegister.КэшПрограммныхИнтерфейсов</informationRegisters>

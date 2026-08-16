@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="50b5c9c5-f5c6-4aaf-9953-12308d834bc4">
+  <producedTypes>
+    <selectionType typeId="dd9fae8b-c5d7-439a-b512-d1b6bbeb1a06" valueTypeId="aaf593fd-63d3-450b-873a-74dfc373d626"/>
+    <listType typeId="2246834e-76e4-4235-b207-40a39035043a" valueTypeId="6f9a706a-7de5-4697-bf78-0cc35ad10d96"/>
+    <managerType typeId="9dd4e6d5-a3bb-4cdc-9d1d-7e978ad6407e" valueTypeId="42be54f4-27fb-4b26-af10-f19d75531935"/>
+    <recordSetType typeId="21be3809-918a-4969-b372-0230c61ecea0" valueTypeId="35382ae9-ad48-4fa1-a2d3-6ec1642382b4"/>
+    <recordKeyType typeId="2a9725ef-0a6f-4647-a01b-e555759da39c" valueTypeId="02992d3b-7b68-40a8-ae0a-63a123aabde1"/>
+    <recordType typeId="f68ca9bd-ce73-47f9-b542-15b4e1539b6d" valueTypeId="3c5a3f10-b444-4440-b3b6-3d976078c563"/>
+    <recordManagerType typeId="095dfe9b-ad85-4f11-9c69-55db044a39f7" valueTypeId="79abcee7-96f1-46ed-887e-6629089e27f8"/>
+  </producedTypes>
+  <name>ИгровоеВремяКампаний</name>
+  <synonym>
+    <key>ru</key>
+    <value>Игровое время кампаний</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Игровое время</value>
+  </recordPresentation>
+  <resources uuid="e720ba50-d897-4671-9527-db9a27e342e7">
+    <name>ИгроваяМинута</name>
+    <synonym>
+      <key>ru</key>
+      <value>Игровая минута</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="f0a86730-0d6e-4cbe-85b1-a4fe78f40e3d">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

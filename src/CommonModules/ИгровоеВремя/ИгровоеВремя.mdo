@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="007c99d0-9e3b-4a42-a2a9-f0d805eab0fb">
+  <name>ИгровоеВремя</name>
+  <synonym>
+    <key>ru</key>
+    <value>Игровое время</value>
+  </synonym>
+  <server>true</server>
+  <externalConnection>true</externalConnection>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
