@@ -45,9 +45,9 @@
   </languages>
   <subsystems>Subsystem.СтандартныеПодсистемы</subsystems>
   <styleItems>StyleItem.ВажнаяНадписьШрифт</styleItems>
-  <styleItems>StyleItem.ЗаблокированныйРеквизитЦвет</styleItems>
   <styleItems>StyleItem.ГиперссылкаЦвет</styleItems>
   <styleItems>StyleItem.ДобавленныйРеквизитФон</styleItems>
+  <styleItems>StyleItem.ЗаблокированныйРеквизитЦвет</styleItems>
   <styleItems>StyleItem.ЗаголовокУдаленногоРеквизитаШрифт</styleItems>
   <styleItems>StyleItem.ИзмененноеЗначениеРеквизитаФон</styleItems>
   <styleItems>StyleItem.ИзмененноеЗначениеРеквизитаЦвет</styleItems>
@@ -65,17 +65,44 @@
   <styleItems>StyleItem.ЦветФонаПредупреждения</styleItems>
   <styleItems>StyleItem.ШрифтОченьКрупныйШрифтТекста</styleItems>
   <commonPictures>CommonPicture.АнализДанных48</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеКонфигурация</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеИзмерения</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеКоманды</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиТаблицы</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиТаблицыИзмерений</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиФункции</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеГрафы</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеГруппыКоманд</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеДокументы</commonPictures>
+  <commonPictures>CommonPicture.ВажностьВысокая</commonPictures>
+  <commonPictures>CommonPicture.ВажностьНеЗадана</commonPictures>
+  <commonPictures>CommonPicture.ВажностьНизкая</commonPictures>
+  <commonPictures>CommonPicture.ВводимыеСимволыВидны</commonPictures>
+  <commonPictures>CommonPicture.ВводимыеСимволыСкрыты</commonPictures>
+  <commonPictures>CommonPicture.ВидыОпераций</commonPictures>
   <commonPictures>CommonPicture.Вопрос32</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеЗадачи</commonPictures>
+  <commonPictures>CommonPicture.ВосклицательныйЗнакКрасный</commonPictures>
+  <commonPictures>CommonPicture.ВосклицательныйЗнакСерый</commonPictures>
+  <commonPictures>CommonPicture.ВставитьИзБуфераОбмена</commonPictures>
+  <commonPictures>CommonPicture.ВыпадающийСписок</commonPictures>
+  <commonPictures>CommonPicture.ВыполнитьРегламентноеЗаданиеВручную</commonPictures>
+  <commonPictures>CommonPicture.ВыравниваниеПоЛевомуКраю</commonPictures>
+  <commonPictures>CommonPicture.ВыравниваниеПоПравомуКраю</commonPictures>
+  <commonPictures>CommonPicture.ВыравниваниеПоЦентру</commonPictures>
+  <commonPictures>CommonPicture.ВыравниваниеПоШирине</commonPictures>
+  <commonPictures>CommonPicture.ГраницаВезде</commonPictures>
+  <commonPictures>CommonPicture.ГраницаВнутри</commonPictures>
+  <commonPictures>CommonPicture.ГраницаВокруг</commonPictures>
+  <commonPictures>CommonPicture.ГраницаСверху</commonPictures>
+  <commonPictures>CommonPicture.ГраницаСлева</commonPictures>
+  <commonPictures>CommonPicture.ГраницаСнизу</commonPictures>
+  <commonPictures>CommonPicture.ГраницаСправа</commonPictures>
+  <commonPictures>CommonPicture.ДлительнаяОперация16</commonPictures>
+  <commonPictures>CommonPicture.ДлительнаяОперация48</commonPictures>
+  <commonPictures>CommonPicture.ЗавершитьРаботу</commonPictures>
+  <commonPictures>CommonPicture.ЗаполнитьФорму</commonPictures>
+  <commonPictures>CommonPicture.ЗаставкаВнешнейОперации</commonPictures>
+  <commonPictures>CommonPicture.ЗнакСтоп</commonPictures>
+  <commonPictures>CommonPicture.ЗначокЗаставкиВнешнейОперации</commonPictures>
+  <commonPictures>CommonPicture.ЗначокЩита</commonPictures>
+  <commonPictures>CommonPicture.ИерархическийСписок</commonPictures>
+  <commonPictures>CommonPicture.ИзменитьШрифт</commonPictures>
+  <commonPictures>CommonPicture.Информация32</commonPictures>
+  <commonPictures>CommonPicture.ИнформацияПоНедоступнымПолям</commonPictures>
+  <commonPictures>CommonPicture.Количество</commonPictures>
+  <commonPictures>CommonPicture.КоллекцияВариантыВажности</commonPictures>
+  <commonPictures>CommonPicture.КоллекцияВидыАктивныхПользователей</commonPictures>
   <commonPictures>CommonPicture.КоллекцияВидыСобытийЖурналаРегистрации</commonPictures>
   <commonPictures>CommonPicture.КоллекцияДляПомеченныхНаУдалениеОбъектов</commonPictures>
   <commonPictures>CommonPicture.КоллекцияПиктограммЭлементов</commonPictures>
@@ -85,57 +112,30 @@
   <commonPictures>CommonPicture.МестоДляQRКода</commonPictures>
   <commonPictures>CommonPicture.МестоДляШтрихкода</commonPictures>
   <commonPictures>CommonPicture.МетаданныеHTTPСервисы</commonPictures>
-  <commonPictures>CommonPicture.ВажностьНизкая</commonPictures>
-  <commonPictures>CommonPicture.ГраницаСверху</commonPictures>
   <commonPictures>CommonPicture.МетаданныеHTTPСервисыШаблоныURL</commonPictures>
-  <commonPictures>CommonPicture.ВыпадающийСписок</commonPictures>
-  <commonPictures>CommonPicture.ВосклицательныйЗнакКрасный</commonPictures>
-  <commonPictures>CommonPicture.ГраницаСлева</commonPictures>
-  <commonPictures>CommonPicture.ГраницаСнизу</commonPictures>
-  <commonPictures>CommonPicture.ДлительнаяОперация48</commonPictures>
-  <commonPictures>CommonPicture.ЗаполнитьФорму</commonPictures>
-  <commonPictures>CommonPicture.ЗавершитьРаботу</commonPictures>
-  <commonPictures>CommonPicture.ГраницаСправа</commonPictures>
-  <commonPictures>CommonPicture.ДлительнаяОперация16</commonPictures>
-  <commonPictures>CommonPicture.ВыполнитьРегламентноеЗаданиеВручную</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеЖурналыДокументов</commonPictures>
-  <commonPictures>CommonPicture.ГраницаВезде</commonPictures>
-  <commonPictures>CommonPicture.ВыравниваниеПоЛевомуКраю</commonPictures>
-  <commonPictures>CommonPicture.ВажностьВысокая</commonPictures>
-  <commonPictures>CommonPicture.ВводимыеСимволыСкрыты</commonPictures>
-  <commonPictures>CommonPicture.ВыравниваниеПоПравомуКраю</commonPictures>
-  <commonPictures>CommonPicture.ВставитьИзБуфераОбмена</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеКритерииОтбора</commonPictures>
-  <commonPictures>CommonPicture.ВыравниваниеПоЦентру</commonPictures>
-  <commonPictures>CommonPicture.ВажностьНеЗадана</commonPictures>
-  <commonPictures>CommonPicture.ВводимыеСимволыВидны</commonPictures>
-  <commonPictures>CommonPicture.ГраницаВнутри</commonPictures>
-  <commonPictures>CommonPicture.ГраницаВокруг</commonPictures>
-  <commonPictures>CommonPicture.ВосклицательныйЗнакСерый</commonPictures>
-  <commonPictures>CommonPicture.ВыравниваниеПоШирине</commonPictures>
-  <commonPictures>CommonPicture.ЗаставкаВнешнейОперации</commonPictures>
-  <commonPictures>CommonPicture.ЗнакСтоп</commonPictures>
-  <commonPictures>CommonPicture.ЗначокЗаставкиВнешнейОперации</commonPictures>
-  <commonPictures>CommonPicture.ВидыОпераций</commonPictures>
   <commonPictures>CommonPicture.МетаданныеHTTPСервисыШаблоныURLМетоды</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеWebСервисы</commonPictures>
   <commonPictures>CommonPicture.МетаданныеWebСервисыОперации</commonPictures>
   <commonPictures>CommonPicture.МетаданныеWebСервисыОперацииПараметры</commonPictures>
   <commonPictures>CommonPicture.МетаданныеWSСсылки</commonPictures>
   <commonPictures>CommonPicture.МетаданныеБизнесПроцессы</commonPictures>
-  <commonPictures>CommonPicture.МетаданныеWebСервисы</commonPictures>
-  <commonPictures>CommonPicture.ЗначокЩита</commonPictures>
-  <commonPictures>CommonPicture.ИерархическийСписок</commonPictures>
-  <commonPictures>CommonPicture.ИзменитьШрифт</commonPictures>
-  <commonPictures>CommonPicture.Информация32</commonPictures>
-  <commonPictures>CommonPicture.ИнформацияПоНедоступнымПолям</commonPictures>
-  <commonPictures>CommonPicture.Количество</commonPictures>
-  <commonPictures>CommonPicture.КоллекцияВариантыВажности</commonPictures>
-  <commonPictures>CommonPicture.КоллекцияВидыАктивныхПользователей</commonPictures>
   <commonPictures>CommonPicture.МетаданныеБоты</commonPictures>
   <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиДанных</commonPictures>
   <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиКубы</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиТаблицы</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиТаблицыИзмерений</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеВнешниеИсточникиФункции</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеГрафы</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеГруппыКоманд</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеДокументы</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеЖурналыДокументов</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеЗадачи</commonPictures>
   <commonPictures>CommonPicture.МетаданныеЗначениеПеречисления</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеИзмерения</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеКоманды</commonPictures>
   <commonPictures>CommonPicture.МетаданныеКонстанты</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеКонфигурация</commonPictures>
+  <commonPictures>CommonPicture.МетаданныеКритерииОтбора</commonPictures>
   <commonPictures>CommonPicture.МетаданныеМакеты</commonPictures>
   <commonPictures>CommonPicture.МетаданныеОбработки</commonPictures>
   <commonPictures>CommonPicture.МетаданныеОбщие</commonPictures>
@@ -276,6 +276,7 @@
   <commonPictures>CommonPicture.ТолстаяГраницаСверху</commonPictures>
   <commonPictures>CommonPicture.ТолстаяГраницаСнизу</commonPictures>
   <commonPictures>CommonPicture.УвеличитьШрифт</commonPictures>
+  <commonPictures>CommonPicture.УдалитьИнформация</commonPictures>
   <commonPictures>CommonPicture.УменьшитьШрифт</commonPictures>
   <commonPictures>CommonPicture.Успешно</commonPictures>
   <commonPictures>CommonPicture.Успешно32</commonPictures>
@@ -294,7 +295,6 @@
   <commonPictures>CommonPicture.ЦветТекста</commonPictures>
   <commonPictures>CommonPicture.ЦветФона</commonPictures>
   <commonPictures>CommonPicture.ШтампЭлектроннойПодписи</commonPictures>
-  <commonPictures>CommonPicture.УдалитьИнформация</commonPictures>
   <sessionParameters>SessionParameter.АвторизованныйПользователь</sessionParameters>
   <sessionParameters>SessionParameter.БуферОбмена</sessionParameters>
   <sessionParameters>SessionParameter.ВерсияРасширений</sessionParameters>
@@ -312,12 +312,12 @@
   <sessionParameters>SessionParameter.ТекущийПользователь</sessionParameters>
   <sessionParameters>SessionParameter.УстановленныеРасширения</sessionParameters>
   <roles>Role.АдминистраторСистемы</roles>
-  <roles>Role.ДобавлениеИзменениеВнешнихПользователей</roles>
   <roles>Role.Администрирование</roles>
-  <roles>Role.ДобавлениеИзменениеПользователей</roles>
-  <roles>Role.БазовыеПраваВнешнихПользователейБСП</roles>
   <roles>Role.БазовыеПраваБСП</roles>
+  <roles>Role.БазовыеПраваВнешнихПользователейБСП</roles>
   <roles>Role.ВыводНаПринтерФайлБуферОбмена</roles>
+  <roles>Role.ДобавлениеИзменениеВнешнихПользователей</roles>
+  <roles>Role.ДобавлениеИзменениеПользователей</roles>
   <roles>Role.ЗапускAutomation</roles>
   <roles>Role.ЗапускВебКлиента</roles>
   <roles>Role.ЗапускВнешнегоСоединения</roles>
@@ -437,9 +437,9 @@
   <scheduledJobs>ScheduledJob.ОчисткаУстаревшихДанных</scheduledJobs>
   <scheduledJobs>ScheduledJob.УдалениеУстаревшихПараметровРаботыВерсийРасширений</scheduledJobs>
   <functionalOptions>FunctionalOption.ИспользоватьВнешнихПользователей</functionalOptions>
-  <functionalOptions>FunctionalOption.ОтложенноеОбновлениеВГлавномУзлеЗавершеноУспешно</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьГруппыВнешнихПользователей</functionalOptions>
   <functionalOptions>FunctionalOption.ИспользоватьГруппыПользователей</functionalOptions>
+  <functionalOptions>FunctionalOption.ОтложенноеОбновлениеВГлавномУзлеЗавершеноУспешно</functionalOptions>
   <functionalOptions>FunctionalOption.ОтложенноеОбновлениеЗавершеноУспешно</functionalOptions>
   <functionalOptions>FunctionalOption.РаботаВЛокальномРежиме</functionalOptions>
   <functionalOptions>FunctionalOption.РаботаВМоделиСервиса</functionalOptions>
@@ -462,9 +462,9 @@
   <commandGroups>CommandGroup.Информация</commandGroups>
   <commandGroups>CommandGroup.Органайзер</commandGroups>
   <constants>Constant.АдресПубликацииИнформационнойБазыВИнтернете</constants>
+  <constants>Constant.АдресПубликацииИнформационнойБазыВЛокальнойСети</constants>
   <constants>Constant.ГлавныйУзел</constants>
   <constants>Constant.ДетализироватьОбновлениеИБВЖурналеРегистрации</constants>
-  <constants>Constant.АдресПубликацииИнформационнойБазыВЛокальнойСети</constants>
   <constants>Constant.ДоставлятьСерверныеОповещенияБезСистемыВзаимодействия</constants>
   <constants>Constant.ЗаголовокСистемы</constants>
   <constants>Constant.ИдентификаторИнформационнойБазы</constants>
@@ -492,11 +492,11 @@
   <constants>Constant.СтандартныеПодсистемыВАвтономномРежиме</constants>
   <constants>Constant.УдалитьНастройкиВходаПользователей</constants>
   <commonForms>CommonForm.БлокировкаРаботыСВнешнимиРесурсами</commonForms>
-  <commonForms>CommonForm.ВопросОбУстановкеВнешнейКомпоненты</commonForms>
-  <commonForms>CommonForm.ВосстановлениеПаролей</commonForms>
-  <commonForms>CommonForm.ВопросОбУстановкеРасширения1СПредприятия</commonForms>
-  <commonForms>CommonForm.ВосстановлениеСвязиСГлавнымУзлом</commonForms>
   <commonForms>CommonForm.Вопрос</commonForms>
+  <commonForms>CommonForm.ВопросОбУстановкеВнешнейКомпоненты</commonForms>
+  <commonForms>CommonForm.ВопросОбУстановкеРасширения1СПредприятия</commonForms>
+  <commonForms>CommonForm.ВосстановлениеПаролей</commonForms>
+  <commonForms>CommonForm.ВосстановлениеСвязиСГлавнымУзлом</commonForms>
   <commonForms>CommonForm.ВходВПрограммуЗапрещен</commonForms>
   <commonForms>CommonForm.ВыборОбъектовМетаданных</commonForms>
   <commonForms>CommonForm.ВыборТиповПользователей</commonForms>
@@ -546,9 +546,9 @@
   <dataProcessors>DataProcessor.РезультатыОбновленияПрограммы</dataProcessors>
   <dataProcessors>DataProcessor.РекомендацияПоПовышениюСкоростиРаботы</dataProcessors>
   <informationRegisters>InformationRegister.БезопасноеХранилищеДанных</informationRegisters>
+  <informationRegisters>InformationRegister.БезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
   <informationRegisters>InformationRegister.ВерсииПодсистем</informationRegisters>
   <informationRegisters>InformationRegister.ДанныеОбработанныеВЦентральномУзлеРИБ</informationRegisters>
-  <informationRegisters>InformationRegister.БезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
   <informationRegisters>InformationRegister.ДлительныеОперации</informationRegisters>
   <informationRegisters>InformationRegister.ИдентификаторыОбъектовВерсийРасширений</informationRegisters>
   <informationRegisters>InformationRegister.ИерархияГруппПользователей</informationRegisters>
@@ -564,6 +564,6 @@
   <informationRegisters>InformationRegister.СведенияОПользователях</informationRegisters>
   <informationRegisters>InformationRegister.СвойстваРасширений</informationRegisters>
   <informationRegisters>InformationRegister.СоставыГруппПользователей</informationRegisters>
-  <informationRegisters>InformationRegister.ФиксацияОбработкиДанныхОбработчиками</informationRegisters>
   <informationRegisters>InformationRegister.УдалитьБезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
+  <informationRegisters>InformationRegister.ФиксацияОбработкиДанныхОбработчиками</informationRegisters>
 </mdclass:Configuration>
