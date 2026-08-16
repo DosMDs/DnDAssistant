@@ -526,6 +526,7 @@
   <catalogs>Catalog.ИдентификаторыОбъектовМетаданных</catalogs>
   <catalogs>Catalog.ИдентификаторыОбъектовРасширений</catalogs>
   <catalogs>Catalog.Кампании</catalogs>
+  <catalogs>Catalog.Персонажи</catalogs>
   <catalogs>Catalog.Пользователи</catalogs>
   <enums>Enum.ПорядокОбработчиковОбновления</enums>
   <enums>Enum.РежимыВыполненияОбработчиков</enums>
