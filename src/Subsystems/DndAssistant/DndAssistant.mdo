@@ -40,4 +40,5 @@
   <content>CommonModule.СвязиЖурнала</content>
   <content>CommonModule.ПоискСущностей</content>
   <content>CommonModule.КонтекстАссистента</content>
+  <content>CommonModule.ИнструментыАссистентаСервер</content>
 </mdclass:Subsystem>

@@ -356,6 +356,7 @@
   <commonModules>CommonModule.ЖурналРегистрацииКлиент</commonModules>
   <commonModules>CommonModule.ИгровоеВремя</commonModules>
   <commonModules>CommonModule.ИгровойКалендарь</commonModules>
+  <commonModules>CommonModule.ИнструментыАссистентаСервер</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСП</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиент</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиентПовтИсп</commonModules>
