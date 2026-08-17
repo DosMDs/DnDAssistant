@@ -29,4 +29,5 @@
   <content>Enum.ВидыОперацийКошелька</content>
   <content>Document.ОперацияКошелька</content>
   <content>AccumulationRegister.КошелькиПерсонажей</content>
+  <content>CommonModule.КошелекПерсонажа</content>
 </mdclass:Subsystem>
