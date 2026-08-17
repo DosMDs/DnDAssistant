@@ -298,6 +298,7 @@
   <commonPictures>CommonPicture.ШтампЭлектроннойПодписи</commonPictures>
   <sessionParameters>SessionParameter.АвторизованныйПользователь</sessionParameters>
   <sessionParameters>SessionParameter.АктивнаяКампания</sessionParameters>
+  <sessionParameters>SessionParameter.АктивныйПерсонаж</sessionParameters>
   <sessionParameters>SessionParameter.БуферОбмена</sessionParameters>
   <sessionParameters>SessionParameter.ВерсияРасширений</sessionParameters>
   <sessionParameters>SessionParameter.ВыполняетсяОбновлениеИБ</sessionParameters>
@@ -417,6 +418,7 @@
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверЛокализация</commonModules>
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверРФ</commonModules>
   <commonModules>CommonModule.УправлениеКампаниями</commonModules>
+  <commonModules>CommonModule.УправлениеПерсонажем</commonModules>
   <commonModules>CommonModule.ФайловаяСистема</commonModules>
   <commonModules>CommonModule.ФайловаяСистемаКлиент</commonModules>
   <commonModules>CommonModule.ФайловаяСистемаСлужебныйКлиент</commonModules>

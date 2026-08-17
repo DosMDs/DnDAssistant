@@ -30,4 +30,6 @@
   <content>Document.ОперацияКошелька</content>
   <content>AccumulationRegister.КошелькиПерсонажей</content>
   <content>CommonModule.КошелекПерсонажа</content>
+  <content>SessionParameter.АктивныйПерсонаж</content>
+  <content>CommonModule.УправлениеПерсонажем</content>
 </mdclass:Subsystem>
