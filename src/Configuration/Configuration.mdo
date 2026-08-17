@@ -595,7 +595,7 @@
   <informationRegisters>InformationRegister.ПериодическиеСерверныеОповещения</informationRegisters>
   <informationRegisters>InformationRegister.ПотокиОбновления</informationRegisters>
   <informationRegisters>InformationRegister.ПрогрессОбновления</informationRegisters>
-  <informationRegisters>InformationRegister.Псеводнимы</informationRegisters>
+  <informationRegisters>InformationRegister.Псевдонимы</informationRegisters>
   <informationRegisters>InformationRegister.СведенияОПользователях</informationRegisters>
   <informationRegisters>InformationRegister.СвойстваРасширений</informationRegisters>
   <informationRegisters>InformationRegister.СвязиЖурнала</informationRegisters>

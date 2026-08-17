@@ -9,10 +9,10 @@
     <recordType typeId="e8c70849-582b-41a6-82e2-5fa8ec6cc431" valueTypeId="8700ff4c-03ac-4868-8fd6-6c9743477e25"/>
     <recordManagerType typeId="cbb41549-bb3f-4f6e-a507-3bc19bcd20cb" valueTypeId="ae81792e-99d9-46d7-8f6d-3df2454689f8"/>
   </producedTypes>
-  <name>Псеводнимы</name>
+  <name>Псевдонимы</name>
   <synonym>
     <key>ru</key>
-    <value>Псеводнимы</value>
+    <value>Псевдонимы</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <editType>InDialog</editType>
