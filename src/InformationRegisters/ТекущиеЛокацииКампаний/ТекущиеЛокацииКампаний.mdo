@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b920d894-9f0e-4575-879a-76e279993b41">
+  <producedTypes>
+    <selectionType typeId="213e96b4-c2f2-44c7-bd82-72e2836c3f54" valueTypeId="797624ad-a6fb-4176-b51c-1120140ea453"/>
+    <listType typeId="21a0fe42-f604-468b-8292-f914c834441b" valueTypeId="6f5636f6-d12d-4282-83ef-7b7e7bb97bc7"/>
+    <managerType typeId="157b92a4-0118-4aea-9090-1f29f819f6d2" valueTypeId="60917422-e47c-4750-b11a-6c7ce918dc55"/>
+    <recordSetType typeId="ac7f8057-fc69-4aa5-b5bf-1eb73785546c" valueTypeId="cf251643-56d0-4b08-b8b3-a452d00d6972"/>
+    <recordKeyType typeId="28a7e779-73d5-4063-bfa4-47a2a3e2af74" valueTypeId="e75d2cee-b78b-4f25-b8a1-a35ead27b7e3"/>
+    <recordType typeId="1edf4889-5363-4c7c-9328-6e54eeadac7d" valueTypeId="683b7d99-0c82-42d6-9754-4ff0c55904c9"/>
+    <recordManagerType typeId="f2680335-2af9-4800-bc54-ba6ef19ddaf0" valueTypeId="b48081e6-e467-42f9-ae0d-4abc1b9f3428"/>
+  </producedTypes>
+  <name>ТекущиеЛокацииКампаний</name>
+  <synonym>
+    <key>ru</key>
+    <value>Текущие локации кампаний</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Текущая локация кампании</value>
+  </recordPresentation>
+  <resources uuid="4a388f0a-d12a-42db-aab1-f9b25e268d75">
+    <name>Локация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Локация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Локации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="03e96592-634f-4fd6-82c0-1eb47329f32c">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

@@ -417,6 +417,7 @@
   <commonModules>CommonModule.СтроковыеФункцииКлиентСервер</commonModules>
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверЛокализация</commonModules>
   <commonModules>CommonModule.СтроковыеФункцииКлиентСерверРФ</commonModules>
+  <commonModules>CommonModule.ТекущаяЛокация</commonModules>
   <commonModules>CommonModule.УправлениеКампаниями</commonModules>
   <commonModules>CommonModule.УправлениеПерсонажем</commonModules>
   <commonModules>CommonModule.ФайловаяСистема</commonModules>
@@ -595,6 +596,7 @@
   <informationRegisters>InformationRegister.СвойстваРасширений</informationRegisters>
   <informationRegisters>InformationRegister.СвязиСущностей</informationRegisters>
   <informationRegisters>InformationRegister.СоставыГруппПользователей</informationRegisters>
+  <informationRegisters>InformationRegister.ТекущиеЛокацииКампаний</informationRegisters>
   <informationRegisters>InformationRegister.УдалитьБезопасноеХранилищеДанныхОбластейДанных</informationRegisters>
   <informationRegisters>InformationRegister.ФиксацияОбработкиДанныхОбработчиками</informationRegisters>
   <accumulationRegisters>AccumulationRegister.КошелькиПерсонажей</accumulationRegisters>

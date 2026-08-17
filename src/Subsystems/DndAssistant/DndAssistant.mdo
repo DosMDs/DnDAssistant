@@ -32,4 +32,6 @@
   <content>CommonModule.КошелекПерсонажа</content>
   <content>SessionParameter.АктивныйПерсонаж</content>
   <content>CommonModule.УправлениеПерсонажем</content>
+  <content>InformationRegister.ТекущиеЛокацииКампаний</content>
+  <content>CommonModule.ТекущаяЛокация</content>
 </mdclass:Subsystem>
