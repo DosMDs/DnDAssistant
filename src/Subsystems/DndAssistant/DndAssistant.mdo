@@ -39,4 +39,5 @@
   <content>InformationRegister.СвязиЖурнала</content>
   <content>CommonModule.СвязиЖурнала</content>
   <content>CommonModule.ПоискСущностей</content>
+  <content>CommonModule.КонтекстАссистента</content>
 </mdclass:Subsystem>

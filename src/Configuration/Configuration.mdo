@@ -360,6 +360,7 @@
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиент</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСПКлиентПовтИсп</commonModules>
   <commonModules>CommonModule.ИнтеграцияПодсистемБСППовтИсп</commonModules>
+  <commonModules>CommonModule.КонтекстАссистента</commonModules>
   <commonModules>CommonModule.КошелекПерсонажа</commonModules>
   <commonModules>CommonModule.ОбновлениеИнформационнойБазы</commonModules>
   <commonModules>CommonModule.ОбновлениеИнформационнойБазыDndAssistant</commonModules>
