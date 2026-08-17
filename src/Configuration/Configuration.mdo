@@ -350,6 +350,7 @@
   <commonModules>CommonModule.ДлительныеОперации</commonModules>
   <commonModules>CommonModule.ДлительныеОперацииВызовСервера</commonModules>
   <commonModules>CommonModule.ДлительныеОперацииКлиент</commonModules>
+  <commonModules>CommonModule.ЖурналКампании</commonModules>
   <commonModules>CommonModule.ЖурналРегистрации</commonModules>
   <commonModules>CommonModule.ЖурналРегистрацииВызовСервера</commonModules>
   <commonModules>CommonModule.ЖурналРегистрацииКлиент</commonModules>
@@ -548,6 +549,7 @@
   <catalogs>Catalog.Предметы</catalogs>
   <catalogs>Catalog.События</catalogs>
   <catalogs>Catalog.ТипыСвязей</catalogs>
+  <documents>Document.ЗаписьЖурнала</documents>
   <documents>Document.ОперацияКошелька</documents>
   <enums>Enum.ВидыОперацийКошелька</enums>
   <enums>Enum.МеждудневьяХарптоса</enums>

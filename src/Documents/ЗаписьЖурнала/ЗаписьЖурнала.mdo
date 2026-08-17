@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4e905034-6512-4770-9639-9a731f8bf251">
+  <producedTypes>
+    <objectType typeId="330f2d6c-0c2c-4907-95f3-d4d395f1edc4" valueTypeId="5297ebcd-320c-420d-9f01-acddbe08a3ab"/>
+    <refType typeId="a8ea410c-93f4-4171-8a3c-deb7ea37f4be" valueTypeId="e09efc27-60eb-4802-a9df-2149f57ceacd"/>
+    <selectionType typeId="264f0853-b42b-410e-be5e-433f7976af24" valueTypeId="7d061420-340b-4bc7-b0e5-400ca8922b75"/>
+    <listType typeId="d0c6eeb2-7587-4785-a954-1e514b88687c" valueTypeId="d569a964-d83d-496b-883c-0e4229e998af"/>
+    <managerType typeId="b4e78a53-4c4d-438b-91dc-0b09eca057d1" valueTypeId="a7352500-c6cb-4d99-8d2f-ef7555c989f3"/>
+  </producedTypes>
+  <name>ЗаписьЖурнала</name>
+  <synonym>
+    <key>ru</key>
+    <value>Запись журнала</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Document.ЗаписьЖурнала.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <objectPresentation>
+    <key>ru</key>
+    <value>Запись журнала</value>
+  </objectPresentation>
+  <numberType>String</numberType>
+  <numberLength>9</numberLength>
+  <numberAllowedLength>Variable</numberAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <posting>Deny</posting>
+  <postInPrivilegedMode>true</postInPrivilegedMode>
+  <unpostInPrivilegedMode>true</unpostInPrivilegedMode>
+  <attributes uuid="004a23f9-0658-4523-b48b-0f0b66ece6fc">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="12acc6cb-ffd1-4ee7-8ecf-de700bc437b5">
+    <name>ИгроваяМинута</name>
+    <synonym>
+      <key>ru</key>
+      <value>Игровая минута</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="c0e53f16-19a6-4faf-a9e1-15c592f919f9">
+    <name>Автор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Автор</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="5bfdec86-5488-435c-9b93-6966e671a3e4">
+    <name>Текст</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текст</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:StringValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+</mdclass:Document>

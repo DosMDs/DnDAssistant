@@ -34,4 +34,6 @@
   <content>CommonModule.УправлениеПерсонажем</content>
   <content>InformationRegister.ТекущиеЛокацииКампаний</content>
   <content>CommonModule.ТекущаяЛокация</content>
+  <content>Document.ЗаписьЖурнала</content>
+  <content>CommonModule.ЖурналКампании</content>
 </mdclass:Subsystem>
