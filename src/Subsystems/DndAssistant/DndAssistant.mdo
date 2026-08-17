@@ -41,4 +41,5 @@
   <content>CommonModule.ПоискСущностей</content>
   <content>CommonModule.КонтекстАссистента</content>
   <content>CommonModule.ИнструментыАссистентаСервер</content>
+  <content>CommonModule.СобытияКампанииСервер</content>
 </mdclass:Subsystem>
