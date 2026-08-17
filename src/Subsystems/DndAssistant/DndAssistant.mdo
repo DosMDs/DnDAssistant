@@ -38,4 +38,5 @@
   <content>CommonModule.ЖурналКампании</content>
   <content>InformationRegister.СвязиЖурнала</content>
   <content>CommonModule.СвязиЖурнала</content>
+  <content>CommonModule.ПоискСущностей</content>
 </mdclass:Subsystem>
