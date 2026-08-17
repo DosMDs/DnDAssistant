@@ -36,4 +36,6 @@
   <content>CommonModule.ТекущаяЛокация</content>
   <content>Document.ЗаписьЖурнала</content>
   <content>CommonModule.ЖурналКампании</content>
+  <content>InformationRegister.СвязиЖурнала</content>
+  <content>CommonModule.СвязиЖурнала</content>
 </mdclass:Subsystem>

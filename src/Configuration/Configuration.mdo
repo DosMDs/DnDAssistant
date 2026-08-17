@@ -396,6 +396,7 @@
   <commonModules>CommonModule.РегламентныеЗаданияПереопределяемый</commonModules>
   <commonModules>CommonModule.РегламентныеЗаданияСервер</commonModules>
   <commonModules>CommonModule.РегламентныеЗаданияСлужебный</commonModules>
+  <commonModules>CommonModule.СвязиЖурнала</commonModules>
   <commonModules>CommonModule.СвязиСущностей</commonModules>
   <commonModules>CommonModule.СерверныеОповещения</commonModules>
   <commonModules>CommonModule.СерверныеОповещенияГлобальный</commonModules>
@@ -596,6 +597,7 @@
   <informationRegisters>InformationRegister.Псеводнимы</informationRegisters>
   <informationRegisters>InformationRegister.СведенияОПользователях</informationRegisters>
   <informationRegisters>InformationRegister.СвойстваРасширений</informationRegisters>
+  <informationRegisters>InformationRegister.СвязиЖурнала</informationRegisters>
   <informationRegisters>InformationRegister.СвязиСущностей</informationRegisters>
   <informationRegisters>InformationRegister.СоставыГруппПользователей</informationRegisters>
   <informationRegisters>InformationRegister.ТекущиеЛокацииКампаний</informationRegisters>

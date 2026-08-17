@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7d330851-4da4-4114-90f4-ef04fc67f972">
+  <producedTypes>
+    <selectionType typeId="ce946c9b-e132-41e6-98d5-cc6e3896dbeb" valueTypeId="e466f0ee-9c77-4840-ac85-ce5dffc51d01"/>
+    <listType typeId="91f3ee3a-9265-4924-9646-3a76c20c1604" valueTypeId="a1fedc7b-ae1c-4522-a1cd-11f70e25e053"/>
+    <managerType typeId="7869977b-b492-4ae9-b5c2-91b53ac2ce66" valueTypeId="3ac3d911-d5d1-4978-bee8-1d5e307efb46"/>
+    <recordSetType typeId="812003f7-5172-4d2f-9220-547e5e5ade91" valueTypeId="82762d8e-7e58-405a-8d32-f85c9f6b4958"/>
+    <recordKeyType typeId="962bde21-eae8-4cee-8e06-33ec356f81fe" valueTypeId="d4083e1e-b16b-4a81-9220-b82f26af2155"/>
+    <recordType typeId="f9b8aa91-5c09-4e8d-89ad-e4ff7c68fc6c" valueTypeId="6de538e5-8de9-449d-baa8-41db91c31eb9"/>
+    <recordManagerType typeId="84954696-dc8d-4c85-b3b8-a88888ef72ef" valueTypeId="f87f1fd6-28b2-4715-bfae-e686ac87274a"/>
+  </producedTypes>
+  <name>СвязиЖурнала</name>
+  <synonym>
+    <key>ru</key>
+    <value>Связи журнала</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Свзяь журана</value>
+  </recordPresentation>
+  <dimensions uuid="e2c88cfc-18bd-4be9-8cb0-7a2b63150450">
+    <name>Кампания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Кампания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Кампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="8fb4a36d-056e-41cf-8083-553534840f10">
+    <name>ЗаписьЖурнала</name>
+    <synonym>
+      <key>ru</key>
+      <value>Запись журнала</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ЗаписьЖурнала</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="1c6f4f0b-3518-4e8f-85be-1c66675795af">
+    <name>Объект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект</value>
+    </synonym>
+    <type>
+      <types>DefinedType.СущностиКампании</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>
