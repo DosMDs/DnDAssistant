@@ -42,4 +42,6 @@
   <content>CommonModule.КонтекстАссистента</content>
   <content>CommonModule.ИнструментыАссистентаСервер</content>
   <content>CommonModule.СобытияКампанииСервер</content>
+  <content>HTTPService.APIАссистента</content>
+  <content>CommonModule.HTTPИнтерфейсАссистентаСервер</content>
 </mdclass:Subsystem>

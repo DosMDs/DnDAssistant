@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:HTTPService xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="c4abc165-934c-47ac-82fc-633b818c8a4c">
+  <name>APIАссистента</name>
+  <synonym>
+    <key>ru</key>
+    <value>APIАссистента</value>
+  </synonym>
+  <rootURL>assistant</rootURL>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <urlTemplates uuid="ac385663-5867-4367-a71e-2552b35ea17d">
+    <name>v1_health</name>
+    <synonym>
+      <key>ru</key>
+      <value>V1 health</value>
+    </synonym>
+    <template>/v1/health</template>
+    <methods uuid="15f03cd8-bf7e-4438-bbe9-548f57c502b2">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>ПроверкаСостоянияGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="7eed12f7-4878-4483-ad52-c9e8848dbbe6">
+    <name>v1_tools</name>
+    <synonym>
+      <key>ru</key>
+      <value>V1 tools</value>
+    </synonym>
+    <template>/v1/tools</template>
+    <methods uuid="679908b9-fb4c-4324-8576-55e1b10b0fe4">
+      <name>GET</name>
+      <synonym>
+        <key>ru</key>
+        <value>GET</value>
+      </synonym>
+      <handler>ИнструментыGET</handler>
+    </methods>
+  </urlTemplates>
+  <urlTemplates uuid="604f1194-6b88-4cb8-a16e-a11f9b61e9d3">
+    <name>v1_tools_name</name>
+    <synonym>
+      <key>ru</key>
+      <value>V1 tools name</value>
+    </synonym>
+    <template>/v1/tools/{name}</template>
+    <methods uuid="49a4acd0-dd3e-4689-8088-529aecc7b1ce">
+      <name>POST</name>
+      <synonym>
+        <key>ru</key>
+        <value>POST</value>
+      </synonym>
+      <httpMethod>POST</httpMethod>
+      <handler>ВыполнениеИнструментаPOST</handler>
+    </methods>
+  </urlTemplates>
+</mdclass:HTTPService>

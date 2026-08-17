@@ -337,6 +337,7 @@
   <roles>Role.УдаленныйДоступБазоваяФункциональность</roles>
   <roles>Role.ЧтениеВнешнихПользователей</roles>
   <commonTemplates>CommonTemplate.ПолучениеДереваОбработчиковОбновления</commonTemplates>
+  <commonModules>CommonModule.HTTPИнтерфейсАссистентаСервер</commonModules>
   <commonModules>CommonModule.АдминистрированиеКластера</commonModules>
   <commonModules>CommonModule.АдминистрированиеКластераCOM</commonModules>
   <commonModules>CommonModule.АдминистрированиеКластераCOMКлиентСервер</commonModules>
@@ -435,6 +436,7 @@
   <commonAttributes>CommonAttribute.ОтредактированныеПредопределенныеРеквизиты</commonAttributes>
   <exchangePlans>ExchangePlan.ОбновлениеИнформационнойБазы</exchangePlans>
   <webServices>WebService.InterfaceVersion</webServices>
+  <httpServices>HTTPService.APIАссистента</httpServices>
   <eventSubscriptions>EventSubscription.ВключитьРегламентноеЗаданиеПриИзмененииФункциональнойОпции</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ВыполнитьДействияПослеПолученияДанныхУзлаВРаспределеннойИнформационнойБазе</eventSubscriptions>
   <eventSubscriptions>EventSubscription.ЗапретитьУдалениеПредопределенныхЭлементов</eventSubscriptions>
