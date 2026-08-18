@@ -1,7 +1,9 @@
-# D&D Assistant AI bridge — A01
+# D&D Assistant AI bridge — P03
 
-Независимый асинхронный Python-клиент локального HTTP API 1С. Этап A01 не
-содержит LLM, model adapters, agent runtime, повторных запросов или web server.
+Асинхронный Python-клиент локального HTTP API 1С с динамическим реестром
+инструментов и чистым преобразованием их схем в Ollama native tool calling.
+Этап P03 не содержит agent runtime, выполнения LLM tool calls, повторных
+запросов к модели или web server.
 
 ## Установка
 
@@ -33,12 +35,19 @@ DND_ONEC_PASSWORD=your-local-password
 ## Использование
 
 ```python
-from dnd_ai_bridge import BridgeSettings, OneCClient
+from dnd_ai_bridge import (
+    BridgeSettings,
+    OneCClient,
+    ToolRegistry,
+    to_ollama_tools,
+)
 
 settings = BridgeSettings()
 
 async with OneCClient(settings) as onec:
-    tools = await onec.list_tools()
+    registry = ToolRegistry(onec)
+    tools = await registry.load_tools()
+    ollama_tools = to_ollama_tools(tools)
     result = await onec.call_tool("get_current_context", {})
 ```
 
@@ -64,4 +73,3 @@ python -m pytest
 Unit-тесты используют `httpx.MockTransport` и не требуют 1С. Integration-тесты
 помечены `integration` и автоматически пропускаются, пока не заданы все три
 переменные `DND_ONEC_BASE_URL`, `DND_ONEC_USERNAME`, `DND_ONEC_PASSWORD`.
-

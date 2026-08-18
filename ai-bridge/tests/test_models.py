@@ -61,7 +61,7 @@ def test_descriptor_to_definition_preserves_schema_without_transformation() -> N
 
     definition = descriptor.as_definition()
 
-    assert definition.input_schema == schema
+    assert definition.parameters == schema
     assert definition.read_only is True
 
 
@@ -90,4 +90,3 @@ def test_minimal_provider_neutral_models() -> None:
     assert request.tools == []
     assert request.messages[0].role == ChatRole.USER
     assert response.message.role == ChatRole.ASSISTANT
-

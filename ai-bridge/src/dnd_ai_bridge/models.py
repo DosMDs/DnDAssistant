@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from enum import StrEnum
 from typing import Any, Literal
 
@@ -15,7 +16,7 @@ class ApiModel(BaseModel):
 class ToolDescriptor(ApiModel):
     name: str
     description: str
-    read_only: bool
+    read_only: bool = Field(strict=True)
     input_schema: dict[str, Any]
 
     def as_definition(self) -> ToolDefinition:
@@ -25,7 +26,7 @@ class ToolDescriptor(ApiModel):
             name=self.name,
             description=self.description,
             read_only=self.read_only,
-            input_schema=self.input_schema,
+            parameters=deepcopy(self.input_schema),
         )
 
 
@@ -92,7 +93,7 @@ class ChatMessage(ApiModel):
 class ToolDefinition(ApiModel):
     name: str
     description: str
-    input_schema: dict[str, Any]
+    parameters: dict[str, Any]
     read_only: bool = True
 
 

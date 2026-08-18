@@ -228,6 +228,22 @@ async def test_list_tools_treats_success_false_as_protocol_failure() -> None:
 
 
 @pytest.mark.asyncio
+async def test_list_tools_rejects_non_boolean_read_only() -> None:
+    descriptor = {
+        "name": "bad_tool",
+        "description": "Некорректный descriptor",
+        "read_only": "true",
+        "input_schema": {"type": "object"},
+    }
+    body = {"success": True, "data": {"tools": [descriptor]}, "error": None}
+    async with client_for(
+        lambda request: httpx.Response(200, json=body, request=request)
+    ) as client:
+        with pytest.raises(OneCProtocolError, match="Invalid /tools response"):
+            await client.list_tools()
+
+
+@pytest.mark.asyncio
 async def test_list_tools_requires_data_tools() -> None:
     body = {"success": True, "data": {}, "error": None}
     async with client_for(
