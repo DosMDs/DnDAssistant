@@ -5,6 +5,8 @@ from __future__ import annotations
 import time
 from collections.abc import AsyncIterator, Callable
 
+from pydantic import BaseModel, ConfigDict, Field
+
 from .models import (
     ChatMessage,
     ChatRole,
@@ -25,6 +27,23 @@ from .ollama_models import (
 from .ollama_tools import to_ollama_tools
 
 
+class OllamaGenerationSettings(BaseModel):
+    """Provider-specific generation settings; never leak into ModelRequest."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    temperature: float | None = Field(default=None, ge=0)
+    seed: int | None = None
+    num_ctx: int | None = Field(default=None, gt=0)
+    keep_alive: str | int | None = None
+
+    def options(self) -> dict[str, object] | None:
+        values = self.model_dump(
+            include={"temperature", "seed", "num_ctx"}, exclude_none=True
+        )
+        return values or None
+
+
 class OllamaProvider:
     """Execute exactly one Ollama completion; tool execution is out of scope."""
 
@@ -33,12 +52,14 @@ class OllamaProvider:
         client: OllamaClient,
         model: str,
         *,
+        generation_settings: OllamaGenerationSettings | None = None,
         clock_ns: Callable[[], int] = time.perf_counter_ns,
     ) -> None:
         if not model.strip():
             raise ValueError("model must be a non-empty string")
         self._client = client
         self._model = model
+        self._generation_settings = generation_settings
         self._clock_ns = clock_ns
 
     async def complete(self, request: ModelRequest) -> ModelResponse:
@@ -101,6 +122,16 @@ class OllamaProvider:
             tools=to_ollama_tools(request.tools),
             stream=False,
             think=False,
+            options=(
+                None
+                if self._generation_settings is None
+                else self._generation_settings.options()
+            ),
+            keep_alive=(
+                None
+                if self._generation_settings is None
+                else self._generation_settings.keep_alive
+            ),
         )
 
     @staticmethod

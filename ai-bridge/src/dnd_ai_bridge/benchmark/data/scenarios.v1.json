@@ -1,0 +1,54 @@
+{
+  "schema_version": "1",
+  "tool_fixture_version": "1",
+  "scenarios": [
+    {
+      "schema_version": "1",
+      "id": "tool.select_lore",
+      "version": 1,
+      "role": "tool_selection",
+      "messages": [{"role": "user", "content": "Use the available tool to find the lore entry named Azure Spire."}],
+      "expectation": {"expected_tool": "lookup_lore"}
+    },
+    {
+      "schema_version": "1",
+      "id": "tool.itinerary_arguments",
+      "version": 1,
+      "role": "tool_arguments",
+      "messages": [{"role": "user", "content": "List up to 3 itinerary entries for Ember Coast on day 17 Frostwane."}],
+      "expectation": {
+        "expected_tool": "list_itinerary",
+        "expected_arguments": {"day": "17 Frostwane", "region": "Ember Coast", "limit": 3},
+        "arguments_subset": true
+      }
+    },
+    {
+      "schema_version": "1",
+      "id": "context.synthetic_harbor",
+      "version": 1,
+      "role": "context_qa",
+      "messages": [
+        {"role": "system", "content": "Synthetic context: Mira met Captain Orin at Glass Harbor. The meeting happened on 17 Frostwane. No dragons appeared."},
+        {"role": "user", "content": "Where and when did Mira meet Captain Orin?"}
+      ],
+      "expectation": {
+        "required_facts": ["Glass Harbor", "17 Frostwane"],
+        "forbidden_facts": ["Moonport", "18 Frostwane"]
+      }
+    },
+    {
+      "schema_version": "1",
+      "id": "summary.synthetic_expedition",
+      "version": 1,
+      "role": "campaign_summary",
+      "messages": [
+        {"role": "system", "content": "Synthetic journal: The party recovered the Brass Compass in Alder Vault. Sela promised it to Archivist Venn. The party has not visited Red Fen."},
+        {"role": "user", "content": "Summarize the important events without inventing facts."}
+      ],
+      "expectation": {
+        "required_facts": ["Brass Compass", "Alder Vault", "Archivist Venn"],
+        "forbidden_facts": ["found in Red Fen", "gave the compass to Sela"]
+      }
+    }
+  ]
+}

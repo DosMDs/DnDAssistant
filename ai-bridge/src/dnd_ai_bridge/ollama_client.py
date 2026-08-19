@@ -21,7 +21,9 @@ from .ollama_models import (
     OllamaChatResponse,
     OllamaErrorResponse,
     OllamaModelsResponse,
+    OllamaRunningModelsResponse,
     OllamaShowModelResponse,
+    OllamaUnloadResponse,
     OllamaVersionResponse,
 )
 
@@ -134,6 +136,24 @@ class OllamaClient:
             OllamaShowModelResponse,
             payload={"model": model, "verbose": verbose},
             endpoint="/api/show",
+        )
+
+    async def running_models(self) -> OllamaRunningModelsResponse:
+        """Return the actual models currently loaded by Ollama."""
+
+        return await self._request_model(
+            "GET", "api/ps", OllamaRunningModelsResponse, endpoint="/api/ps"
+        )
+
+    async def unload_model(self, model: str) -> OllamaUnloadResponse:
+        """Ask Ollama to unload a model without using its platform CLI."""
+
+        return await self._request_model(
+            "POST",
+            "api/generate",
+            OllamaUnloadResponse,
+            payload={"model": model, "keep_alive": 0},
+            endpoint="/api/generate",
         )
 
     async def _request_model(

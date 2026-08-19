@@ -30,7 +30,7 @@ from .models import (
 )
 from .onec_client import OneCClient
 from .ollama_client import OllamaClient
-from .ollama_provider import OllamaProvider
+from .ollama_provider import OllamaGenerationSettings, OllamaProvider
 from .ollama_tools import to_ollama_tools
 from .provider import ModelProvider
 from .tool_registry import ToolRegistry
@@ -52,6 +52,7 @@ __all__ = [
     "OllamaConnectionError",
     "OllamaError",
     "OllamaHTTPStatusError",
+    "OllamaGenerationSettings",
     "OllamaProtocolError",
     "OllamaProvider",
     "OllamaSettings",

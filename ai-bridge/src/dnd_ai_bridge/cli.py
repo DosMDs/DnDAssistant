@@ -12,9 +12,15 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from .config import BridgeSettings
+from .benchmark.models import ScenarioRole
+from .benchmark.output import JsonlResultWriter
+from .benchmark.runner import BenchmarkRunner
+from .benchmark.scenarios import load_builtin_scenarios
+from .config import BridgeSettings, OllamaSettings
 from .errors import BridgeError
 from .onec_client import OneCClient
+from .ollama_client import OllamaClient
+from .ollama_provider import OllamaGenerationSettings
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -25,6 +31,32 @@ def _parser() -> argparse.ArgumentParser:
     call = subparsers.add_parser("call", help="call a tool")
     call.add_argument("name", help="tool name reported by /tools")
     call.add_argument("arguments", nargs="?", default="{}", help="JSON object")
+    benchmark = subparsers.add_parser(
+        "benchmark", help="run reproducible offline Ollama benchmarks"
+    )
+    benchmark_commands = benchmark.add_subparsers(
+        dest="benchmark_command", required=True
+    )
+    benchmark_commands.add_parser(
+        "list-models", help="list locally installed Ollama models"
+    )
+    run = benchmark_commands.add_parser("run", help="run benchmark scenarios")
+    run.add_argument("--model", required=True)
+    selection = run.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--role", choices=[role.value for role in ScenarioRole])
+    selection.add_argument("--all", action="store_true", dest="all_roles")
+    run.add_argument("--repeat", type=int, default=1)
+    run.add_argument(
+        "--cold", action=argparse.BooleanOptionalAction, default=True
+    )
+    run.add_argument(
+        "--warm", action=argparse.BooleanOptionalAction, default=True
+    )
+    run.add_argument("--output", required=True)
+    run.add_argument("--temperature", type=float, default=0.0)
+    run.add_argument("--seed", type=int, default=0)
+    run.add_argument("--num-ctx", type=int)
+    run.add_argument("--keep-alive")
     return parser
 
 
@@ -42,6 +74,9 @@ def _configure_utf8_output() -> None:
 
 
 async def _run(args: argparse.Namespace) -> int:
+    if args.command == "benchmark":
+        return await _run_benchmark(args)
+
     try:
         settings = BridgeSettings()
     except ValidationError:
@@ -81,6 +116,74 @@ async def _run(args: argparse.Namespace) -> int:
     else:
         output = result.model_dump(mode="json")
     _print_json(output)
+    return 0
+
+
+def _keep_alive(value: str | None) -> str | int | None:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+async def _run_benchmark(args: argparse.Namespace) -> int:
+    """Benchmark configuration is intentionally independent from 1C settings."""
+
+    try:
+        settings = OllamaSettings()
+    except ValidationError:
+        print(
+            "Invalid Ollama configuration: check DND_OLLAMA_BASE_URL and "
+            "DND_OLLAMA_TIMEOUT_SECONDS.",
+            file=sys.stderr,
+        )
+        return 2
+
+    try:
+        async with OllamaClient(settings) as client:
+            if args.benchmark_command == "list-models":
+                response = await client.list_models()
+                _print_json(
+                    [model.model_dump(mode="json") for model in response.models]
+                )
+                return 0
+
+            if args.repeat < 1:
+                print("--repeat must be at least 1.", file=sys.stderr)
+                return 2
+            if not args.cold and not args.warm:
+                print("At least one of --cold or --warm is required.", file=sys.stderr)
+                return 2
+            role = None if args.all_roles else ScenarioRole(args.role)
+            scenarios = load_builtin_scenarios(role)
+            generation = OllamaGenerationSettings(
+                temperature=args.temperature,
+                seed=args.seed,
+                num_ctx=args.num_ctx,
+                keep_alive=_keep_alive(args.keep_alive),
+            )
+            runner = BenchmarkRunner(client, JsonlResultWriter(args.output))
+            results = await runner.run(
+                model=args.model,
+                scenarios=scenarios,
+                repeat=args.repeat,
+                cold=args.cold,
+                warm=args.warm,
+                generation_settings=generation,
+            )
+    except (BridgeError, ValidationError, ValueError) as exc:
+        print(f"Benchmark error: {exc}", file=sys.stderr)
+        return 1
+
+    _print_json(
+        {
+            "output": args.output,
+            "records": len(results),
+            "errors": sum(result.error is not None for result in results),
+        }
+    )
     return 0
 
 

@@ -1,14 +1,14 @@
 # D&D Assistant architecture
 
-Status baseline: **after P04**. This document deliberately distinguishes the
+Status baseline: **after P05**. This document deliberately distinguishes the
 working system (**IMPLEMENTED**) from intended later stages (**PLANNED**).
 
 ## Purpose
 
 This is the canonical detailed architecture for D&D Assistant. It defines
 component ownership, integration contracts, invariants, supported environments,
-and the boundary between the completed P04 Ollama provider work and the planned
-P05/P06 application layers.
+and the boundary between the completed P05 benchmark work and the planned P06
+agent layer.
 
 Repository-wide working rules are summarised in [AGENTS.md](../AGENTS.md).
 
@@ -35,7 +35,7 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 - Moving persistent campaign state or domain authority out of 1C.
 - Reimplementing 1C business rules in Python for convenience.
 - Treating Ollama as an application or persistence layer.
-- A bridge web server, benchmark runner, or agent loop in the P04 baseline.
+- A bridge web server or agent loop in the P05 baseline.
 
 ## Supported environments
 
@@ -50,7 +50,7 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 
 ## High-level architecture
 
-**IMPLEMENTED after P04:**
+**IMPLEMENTED after P05:**
 
 ```text
 1C application and persistent data
@@ -67,7 +67,7 @@ Ollama: one local model completion
 1C defines what game data means and which AI tools exist. Python translates
 between versioned application contracts and a model provider. Ollama only runs
 inference. The current provider returns model output or tool-call requests; no
-component in P04 iterates those calls into an agent conversation.
+component in P05 iterates those calls into an agent conversation.
 
 **PLANNED:** the P06 application-level agent runtime will sit in Python above
 `ModelProvider`, `OneCClient`, and `ToolRegistry`. It will not move provider or
@@ -95,7 +95,7 @@ entity or campaign logic.
 
 ## Python `ai-bridge` responsibilities
 
-**IMPLEMENTED after P04:**
+**IMPLEMENTED after P05:**
 
 - environment-backed connection settings;
 - an asynchronous typed `OneCClient` for health, tool discovery, and tool
@@ -109,11 +109,14 @@ entity or campaign logic.
 - streaming of visible model output;
 - diagnostic CLI commands for the 1C API;
 - transport methods for Ollama version, model list, and model details;
+- typed running-model discovery through Ollama `GET /api/ps`;
+- provider-specific generation settings outside neutral `ModelRequest`;
+- versioned synthetic scenarios, deterministic scoring, verified cold/warm
+  orchestration, environment/model metadata, and durable JSONL output;
 - unit tests and opt-in live 1C integration tests.
 
-**PLANNED, not present after P04:**
+**PLANNED, not present after P05:**
 
-- benchmark runner and scoring (P05);
 - logical-profile routing and concrete model selection policy;
 - application-level agent orchestration and tool iteration (P06).
 
@@ -209,7 +212,7 @@ agent runtime.
 
 ## Ollama transport/provider
 
-**IMPLEMENTED after P04:**
+**IMPLEMENTED after P05:**
 
 - `OllamaClient.chat()` calls `POST /api/chat` for a non-streaming completion;
 - `OllamaClient.stream_chat()` reads and validates the NDJSON stream from
@@ -217,8 +220,12 @@ agent runtime.
 - `OllamaClient.version()` calls `GET /api/version`;
 - `OllamaClient.list_models()` calls `GET /api/tags`;
 - `OllamaClient.show_model()` calls `POST /api/show`;
+- `OllamaClient.running_models()` calls `GET /api/ps`;
+- benchmark unloads use the HTTP API with `keep_alive=0`, never `ollama ps`;
 - `OllamaProvider` maps neutral messages, schemas, and tool calls without
   executing tools;
+- `OllamaGenerationSettings` maps temperature, seed, context allocation, and
+  keep-alive without changing the provider-neutral request;
 - thinking-only chunks are not exposed as visible neutral output;
 - terminal output carries usage and client-observed performance metrics.
 
@@ -232,6 +239,8 @@ The required runtime is completely offline:
 - 1C, Python, Ollama, and model files must be usable without internet access;
 - no cloud API or telemetry service may be mandatory;
 - there must be no automatic cloud fallback;
+- production and benchmark Ollama processes must set `OLLAMA_NO_CLOUD=1`, and
+  benchmark input rejects explicitly cloud model identifiers;
 - normal inference and tool calls remain within the local machine or an
   explicitly local/offline deployment boundary;
 - dependency and model acquisition may be a separate setup activity, but is not
@@ -290,9 +299,12 @@ For a non-streaming response, the first meaningful output can only be observed
 at completion. For a stream, thinking-only and empty chunks do not count as the
 first meaningful visible chunk.
 
-**Not implemented:** benchmark cases, aggregation, scoring, comparisons,
-acceptance thresholds, and model/profile recommendations. Performance choices
-must be based on the planned measured benchmark, not intuition or model names.
+**IMPLEMENTED in P05:** measured runs always stream; JSONL preserves client and
+server timings plus safe prompt/generation token rates. Synthetic versioned
+cases cover tool selection, tool arguments, context QA, and campaign summaries.
+Scoring is deterministic and local. Cold/warm preconditions are confirmed with
+`/api/ps`; unconfirmed state makes a run invalid. Model/profile recommendations
+still require real measurements on target hardware.
 
 ## Testing strategy
 
@@ -304,7 +316,7 @@ publication when all required connection variables are set.
 
 Documentation and contract reviews must compare endpoint names, DTOs, tool
 names, and error semantics on both sides. The developer performs 1C runtime and
-cross-platform integration testing. Future P05/P06 tests must keep provider
+cross-platform integration testing. P05/P06 tests must keep provider
 tests focused on one completion and test orchestration separately.
 
 ## Model profiles: `fast` / `large`
@@ -319,24 +331,24 @@ The canonical logical profiles are:
 **PLANNED:** profile-to-Ollama-model mapping and routing. Concrete model
 identifiers must not be stored or hardcoded in 1C. They belong in Python-side
 runtime configuration and must be selected from P05 benchmark evidence for the
-target hardware. After P04, callers still pass a concrete model identifier
+target hardware. After P05, callers still pass a concrete model identifier
 directly to `OllamaProvider`.
 
-## Benchmark architecture (planned P05)
+## Benchmark architecture (implemented P05)
 
-**PLANNED; no benchmark runner exists after P04.** P05 will add a Python-side
-runner above the one-completion provider boundary. It should run reproducible
-cases against candidate local models, retain raw usage/performance observations,
-derive comparable metrics, and produce evidence for `fast`/`large` mappings.
+**IMPLEMENTED.** The Python-side `dnd_ai_bridge.benchmark` package sits above
+the one-completion provider boundary. It runs reproducible synthetic cases
+against candidate local models, retains each repetition independently, derives
+comparable metrics, and emits append-only versioned JSONL evidence.
 
-Benchmark orchestration and scoring must not be added to `ModelProvider`, 1C,
-or Ollama. The benchmark must identify environment, model, configuration, case,
-and metric definitions so results can be compared rather than inferred from a
-single run.
+Benchmark orchestration and scoring are not part of `ModelProvider`, 1C, or
+Ollama. Records identify environment, model metadata, generation configuration,
+scenario, mode, repetition, raw/derived metrics, scoring, and expected errors.
+The runner never uses 1C data or credentials.
 
 ## Agent runtime (planned P06)
 
-**PLANNED; no agent runtime exists after P04.** P06 will add an
+**PLANNED; no agent runtime exists after P05.** P06 will add an
 application-level Python orchestration layer. Its responsibilities will include
 loading current tools from 1C, calling a selected provider, validating requested
 tools against the current registry, executing them through `OneCClient`, adding
@@ -392,7 +404,8 @@ should be left untouched unless the task specifically requires them.
   endpoints.
 - **P04.5 — DOCUMENTATION BASELINE:** canonical developer context and
   cross-layer architecture documentation.
-- **P05 — PLANNED:** benchmark runner, measurements/scoring, and evidence-based
-  selection of concrete models for the logical `fast` and `large` profiles.
+- **P05 — IMPLEMENTED:** offline benchmark runner, deterministic scoring,
+  measured streaming metrics, environment/model metadata, verified cold/warm
+  state, repetitions, and durable JSONL output.
 - **P06 — PLANNED:** application-level agent runtime, 1C tool execution, and
   bounded model/tool iteration.

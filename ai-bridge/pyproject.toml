@@ -26,11 +26,14 @@ dnd-ai-bridge = "dnd_ai_bridge.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"dnd_ai_bridge.benchmark.data" = ["*.json"]
+
 [tool.pytest.ini_options]
 addopts = "-ra"
 asyncio_mode = "auto"
 testpaths = ["tests"]
 markers = [
     "integration: tests requiring a live 1C publication",
+    "ollama_live: tests requiring a live local Ollama model",
 ]
-

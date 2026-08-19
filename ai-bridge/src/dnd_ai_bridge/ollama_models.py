@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class OllamaApiModel(BaseModel):
@@ -84,6 +84,9 @@ class OllamaModelsResponse(OllamaApiModel):
 
 
 class OllamaShowModelResponse(OllamaApiModel):
+    name: str | None = None
+    model: str | None = None
+    digest: str | None = None
     parameters: str | None = None
     license: str | None = None
     modified_at: str | None = None
@@ -91,6 +94,40 @@ class OllamaShowModelResponse(OllamaApiModel):
     template: str | None = None
     capabilities: list[str] = Field(default_factory=list)
     model_info: dict[str, Any] = Field(default_factory=dict)
+
+
+class OllamaRunningModel(OllamaApiModel):
+    """A model currently resident in memory, as reported by ``/api/ps``."""
+
+    name: str | None = None
+    model: str | None = None
+    digest: str | None = None
+    size: int | None = Field(default=None, ge=0)
+    size_vram: int | None = Field(default=None, ge=0)
+    context_length: int | None = Field(default=None, ge=0)
+    expires_at: str | None = None
+    details: OllamaModelDetails | None = None
+
+    @model_validator(mode="after")
+    def require_identifier(self) -> OllamaRunningModel:
+        if not (self.name or self.model):
+            raise ValueError("a running model must include name or model")
+        return self
+
+    @property
+    def identifier(self) -> str:
+        return self.model or self.name or ""
+
+
+class OllamaRunningModelsResponse(OllamaApiModel):
+    models: list[OllamaRunningModel]
+
+
+class OllamaUnloadResponse(OllamaApiModel):
+    """Minimal response contract for an explicit keep_alive=0 unload."""
+
+    model: str
+    done: bool
 
 
 class OllamaErrorResponse(OllamaApiModel):

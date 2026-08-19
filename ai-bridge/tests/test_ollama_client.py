@@ -261,3 +261,43 @@ async def test_diagnostic_endpoints_return_typed_model_information() -> None:
     assert shown.details is not None
     assert shown.details.parameter_size == "8.2B"
     assert shown.model_info["general.architecture"] == "qwen3"
+
+
+@pytest.mark.asyncio
+async def test_running_models_endpoint_is_typed() -> None:
+    def handler(http_request: httpx.Request) -> httpx.Response:
+        assert http_request.method == "GET"
+        assert http_request.url.path == "/api/ps"
+        return httpx.Response(
+            200,
+            json={
+                "models": [
+                    {
+                        "name": "qwen3:8b",
+                        "model": "qwen3:8b",
+                        "digest": "sha256:abc",
+                        "size": 5_000,
+                        "size_vram": 4_000,
+                        "context_length": 8192,
+                        "expires_at": "2026-08-19T13:00:00Z",
+                        "details": {
+                            "parameter_size": "8.2B",
+                            "quantization_level": "Q4_K_M",
+                        },
+                    }
+                ]
+            },
+            request=http_request,
+        )
+
+    async with OllamaClient(
+        settings(), transport=httpx.MockTransport(handler)
+    ) as client:
+        result = await client.running_models()
+
+    running = result.models[0]
+    assert running.identifier == "qwen3:8b"
+    assert running.size_vram == 4_000
+    assert running.context_length == 8192
+    assert running.details is not None
+    assert running.details.quantization_level == "Q4_K_M"

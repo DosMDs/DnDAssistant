@@ -16,6 +16,7 @@ from dnd_ai_bridge.models import (
 )
 from dnd_ai_bridge.ollama_client import OllamaClient
 from dnd_ai_bridge.ollama_provider import OllamaProvider
+from dnd_ai_bridge.ollama_provider import OllamaGenerationSettings
 
 
 def clock(values: list[int]) -> Callable[[], int]:
@@ -170,3 +171,36 @@ async def test_provider_stream_measures_first_meaningful_visible_chunk() -> None
     assert visible[-1].performance.completed_ns == 500
     assert visible[-1].performance.client_wall_duration_ns == 400
     assert visible[-1].performance.time_to_first_chunk_ns == 250
+
+
+@pytest.mark.asyncio
+async def test_generation_settings_map_only_to_ollama_request() -> None:
+    received: dict[str, Any] = {}
+
+    def handler(http_request: httpx.Request) -> httpx.Response:
+        nonlocal received
+        received = json.loads(http_request.content)
+        return httpx.Response(200, json=response_body(), request=http_request)
+
+    async with OllamaClient(
+        settings(), transport=httpx.MockTransport(handler)
+    ) as client:
+        provider = OllamaProvider(
+            client,
+            "qwen3:8b",
+            generation_settings=OllamaGenerationSettings(
+                temperature=0.2, seed=42, num_ctx=8192, keep_alive="10m"
+            ),
+            clock_ns=clock([1, 2]),
+        )
+        await provider.complete(
+            ModelRequest(messages=[ChatMessage(role=ChatRole.USER, content="x")])
+        )
+
+    assert received["options"] == {
+        "temperature": 0.2,
+        "seed": 42,
+        "num_ctx": 8192,
+    }
+    assert received["keep_alive"] == "10m"
+    assert "options" not in ModelRequest.model_fields

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "tools": [
+    {
+      "name": "lookup_lore",
+      "description": "Find a synthetic lore entry by its name.",
+      "parameters": {
+        "type": "object",
+        "properties": {"query": {"type": "string"}},
+        "required": ["query"],
+        "additionalProperties": false
+      },
+      "read_only": true
+    },
+    {
+      "name": "list_itinerary",
+      "description": "List synthetic travel events for a day and optional region.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "day": {"type": "string"},
+          "region": {"type": "string"},
+          "limit": {"type": "integer"}
+        },
+        "required": ["day"],
+        "additionalProperties": false
+      },
+      "read_only": true
+    }
+  ]
+}
