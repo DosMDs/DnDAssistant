@@ -37,7 +37,7 @@ Do not introduce mandatory cloud services or OS-specific shell/path behaviour.
   - provider adapters;
   - benchmark;
   - cross-platform runtime glue;
-  - planned agent orchestration;
+  - application-level agent orchestration;
   - planned model routing.
 - **Ollama** performs local model inference only.
 

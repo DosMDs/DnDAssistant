@@ -1,5 +1,19 @@
 """Public API for the D&D Assistant local AI bridge."""
 
+from .agent import (
+    AgentError,
+    AgentLimitError,
+    AgentLimits,
+    AgentResult,
+    AgentRuntime,
+    EmptyFinalResponseError,
+    IterationLimitError,
+    ToolCallLimitError,
+    ToolNotAllowedError,
+    ToolTransportFailureError,
+    UnknownToolError,
+    serialize_tool_result,
+)
 from .config import BridgeSettings, OllamaSettings
 from .errors import (
     BridgeError,
@@ -36,11 +50,18 @@ from .provider import ModelProvider
 from .tool_registry import ToolRegistry
 
 __all__ = [
+    "AgentError",
+    "AgentLimitError",
+    "AgentLimits",
+    "AgentResult",
+    "AgentRuntime",
     "BridgeError",
     "BridgeSettings",
     "ChatMessage",
     "ChatRole",
+    "EmptyFinalResponseError",
     "HealthResponse",
+    "IterationLimitError",
     "ModelProvider",
     "ModelPerformanceMetrics",
     "ModelRequest",
@@ -63,9 +84,14 @@ __all__ = [
     "OneCProtocolError",
     "OneCTransportError",
     "ToolDefinition",
+    "ToolCallLimitError",
     "ToolDescriptor",
     "ToolError",
+    "ToolNotAllowedError",
     "ToolRegistry",
     "ToolResult",
+    "ToolTransportFailureError",
+    "UnknownToolError",
+    "serialize_tool_result",
     "to_ollama_tools",
 ]

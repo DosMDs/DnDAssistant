@@ -1,10 +1,12 @@
-# D&D Assistant AI bridge — P05
+# D&D Assistant AI bridge — P06
 
 Асинхронный Python-клиент локального HTTP API 1С с динамическим реестром
 инструментов, а также transport/provider layer для локального Ollama native
 tool calling. Этап P05 также содержит воспроизводимый offline benchmark
-локальных моделей. Provider по-прежнему выполняет ровно один model completion;
-agent runtime, выполнение LLM tool calls и web server не реализованы.
+локальных моделей. Этап P06 добавляет transient application-level agent runtime
+с динамической загрузкой инструментов 1С, последовательным выполнением
+read-only tool calls и ограниченным model/tool loop. Provider по-прежнему
+выполняет ровно один model completion; web server не реализован.
 
 Архитектура системы и правила разработки описаны в
 [../docs/architecture.md](../docs/architecture.md) и
@@ -56,34 +58,39 @@ OLLAMA_NO_CLOUD=1
 
 ```python
 from dnd_ai_bridge import (
+    AgentRuntime,
     BridgeSettings,
     ChatMessage,
     ChatRole,
-    ModelRequest,
     OneCClient,
     OllamaClient,
     OllamaProvider,
     OllamaSettings,
-    ToolRegistry,
-    to_ollama_tools,
 )
 
 settings = BridgeSettings()
 
-async with OneCClient(settings) as onec:
-    registry = ToolRegistry(onec)
-    tools = await registry.load_tools()
-    ollama_tools = to_ollama_tools(tools)
-    result = await onec.call_tool("get_current_context", {})
-
-async with OllamaClient(OllamaSettings()) as ollama:
+async with OneCClient(settings) as onec, OllamaClient(OllamaSettings()) as ollama:
     provider = OllamaProvider(ollama, model="qwen3:8b")
-    response = await provider.complete(
-        ModelRequest(
-            messages=[ChatMessage(role=ChatRole.USER, content="Где Торвальд?")]
-        )
+    agent = AgentRuntime(provider, onec)
+    result = await agent.run(
+        [ChatMessage(role=ChatRole.USER, content="Где Торвальд?")]
     )
 ```
+
+`AgentRuntime` при каждом run заново получает definitions через
+`ToolRegistry`, передаёт модели только этот набор и допускает выполнение только
+`read_only=true`. Assistant message с исходными `tool_calls` сохраняется перед
+последовательными `role=tool` messages; каждый `ToolResult`, включая
+`success=false`/`invalid_arguments`, возвращается модели как compact
+deterministic JSON. Defaults `AgentLimits`: 8 model completions и 16 tool calls.
+
+Unknown tool, запрет policy, исчерпание limits, пустой final response и ошибка
+границы 1С представлены typed `AgentError`. Transport/auth/protocol причина 1С
+сохраняется через exception chaining; аргументы и результаты не включаются в
+текст orchestration error. `asyncio.CancelledError` немедленно выходит наружу,
+после cancellation новые completion/tool calls не запускаются. Runtime не
+делает retries, parallel execution, persistence или user-facing streaming.
 
 `OllamaProvider.stream()` отдаёт только provider-neutral visible chunks. Поле
 Ollama `thinking` не переносится в них; terminal chunk содержит usage и
@@ -143,10 +150,10 @@ JSONL — append-only primary artifact. После каждой строки в�
 {"schema_version":"1","run_id":"8d12...","scenario_id":"context.synthetic_harbor","scenario_version":1,"role":"context_qa","model":"qwen3:8b","mode":"warm","repeat_index":1,"generation_settings":{"temperature":0.0,"seed":0},"environment":{"os":"Windows","os_version":"10.0.26100","architecture":"AMD64","python_version":"3.12.0","ollama_version":"0.12.6"},"model_info":{"requested_name":"qwen3:8b","reported_name":"qwen3:8b","digest":"sha256:...","parameter_size":"8.2B","quantization":"Q4_K_M","capabilities":["completion","tools"],"context_metadata":{"qwen3.context_length":40960},"allocated_context_length":8192,"size_vram":5550000000},"raw_metrics":{"client_wall_duration_ns":2100000000,"time_to_first_meaningful_chunk_ns":430000000,"total_duration_ns":2050000000,"load_duration_ns":0,"prompt_eval_count":51,"prompt_eval_duration_ns":180000000,"eval_count":24,"eval_duration_ns":1500000000},"derived_metrics":{"prompt_tokens_per_second":283.33,"generation_tokens_per_second":16.0},"scoring":{"passed":true,"checks":{"required:Glass Harbor":true,"required:17 Frostwane":true,"forbidden:Moonport":true,"forbidden:18 Frostwane":true},"message":null},"error":null}
 ```
 
-Оставшиеся задачи P06: application-level agent runtime, динамическая загрузка
-1C tools, проверка и выполнение запрошенных tool calls через `OneCClient`,
-добавление tool results в диалог, ограниченный цикл model/tool, cancellation и
-ошибки orchestration. Эти обязанности не входят в provider и benchmark.
+Оставшиеся задачи после P06: local Python service/API, интеграция с UI 1С,
+benchmark-driven routing логических профилей `fast`/`large`, user-facing agent
+streaming и отдельная безопасная policy для write tools. Эти обязанности не
+входят в provider, benchmark или текущий read-only runtime.
 
 ## Тесты
 

@@ -1,14 +1,14 @@
 # D&D Assistant architecture
 
-Status baseline: **after P05**. This document deliberately distinguishes the
+Status baseline: **after P06**. This document deliberately distinguishes the
 working system (**IMPLEMENTED**) from intended later stages (**PLANNED**).
 
 ## Purpose
 
 This is the canonical detailed architecture for D&D Assistant. It defines
 component ownership, integration contracts, invariants, supported environments,
-and the boundary between the completed P05 benchmark work and the planned P06
-agent layer.
+and the boundary between the completed P06 agent runtime and planned later
+integration layers.
 
 Repository-wide working rules are summarised in [AGENTS.md](../AGENTS.md).
 
@@ -35,7 +35,8 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 - Moving persistent campaign state or domain authority out of 1C.
 - Reimplementing 1C business rules in Python for convenience.
 - Treating Ollama as an application or persistence layer.
-- A bridge web server or agent loop in the P05 baseline.
+- A bridge web server, conversation persistence, or write-tool execution in
+  the P06 baseline.
 
 ## Supported environments
 
@@ -50,28 +51,25 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 
 ## High-level architecture
 
-**IMPLEMENTED after P05:**
+**IMPLEMENTED after P06:**
 
 ```text
 1C application and persistent data
         |
         | local, versioned /assistant/v1 HTTP API
         v
-Python ai-bridge: typed 1C client, dynamic tools, neutral model boundary
+Python ai-bridge: bounded agent runtime, dynamic tools, neutral model boundary
         |
         | local Ollama HTTP API
         v
 Ollama: one local model completion
 ```
 
-1C defines what game data means and which AI tools exist. Python translates
-between versioned application contracts and a model provider. Ollama only runs
-inference. The current provider returns model output or tool-call requests; no
-component in P05 iterates those calls into an agent conversation.
-
-**PLANNED:** the P06 application-level agent runtime will sit in Python above
-`ModelProvider`, `OneCClient`, and `ToolRegistry`. It will not move provider or
-domain responsibilities across their existing boundaries.
+1C defines what game data means and which AI tools exist. Python loads that
+registry for each transient agent run, iterates bounded model completions and
+read-only tool calls, and translates between versioned application contracts
+and a model provider. Ollama only runs inference. The provider still performs
+exactly one completion and never executes tools.
 
 ## 1C responsibilities
 
@@ -95,7 +93,7 @@ entity or campaign logic.
 
 ## Python `ai-bridge` responsibilities
 
-**IMPLEMENTED after P05:**
+**IMPLEMENTED after P06:**
 
 - environment-backed connection settings;
 - an asynchronous typed `OneCClient` for health, tool discovery, and tool
@@ -113,12 +111,16 @@ entity or campaign logic.
 - provider-specific generation settings outside neutral `ModelRequest`;
 - versioned synthetic scenarios, deterministic scoring, verified cold/warm
   orchestration, environment/model metadata, and durable JSONL output;
+- transient application-level agent orchestration with dynamic tool loading,
+  sequential read-only tool execution, explicit limits, typed results and
+  errors, and immediate cancellation propagation;
 - unit tests and opt-in live 1C integration tests.
 
-**PLANNED, not present after P05:**
+**PLANNED, not present after P06:**
 
 - logical-profile routing and concrete model selection policy;
-- application-level agent orchestration and tool iteration (P06).
+- a local Python service/API and 1C UI integration;
+- user-facing agent streaming and write-tool policy.
 
 Python should remain stateless where practical. Persistent game state and
 domain decisions must not be copied into the bridge without an explicit
@@ -143,10 +145,10 @@ depend on a campaign resolve the active campaign in 1C and constrain their
 domain queries accordingly. Tool results are snapshots for an individual call;
 they are not a Python-side database.
 
-Python owns transient integration objects and provider-neutral messages for a
-completion. Ollama owns only inference-time model state. Any future agent
-conversation state must remain transient or have explicitly designed ownership;
-it must not silently become a second store of campaign data.
+Python owns transient integration objects and the in-memory transcript for one
+agent run. Ollama owns only inference-time model state. The P06 runtime adds no
+conversation persistence; any future persistence needs explicitly designed
+ownership and must not silently become a second store of campaign data.
 
 ## 1C Assistant HTTP API
 
@@ -207,8 +209,8 @@ application layer.
 
 A provider performs exactly one model completion. It may return requested tool
 calls, but it does not execute them, append their results, retry the model, or
-decide when an agent loop ends. Those operations belong to the planned P06
-agent runtime.
+decide when an agent loop ends. Those operations belong to the implemented
+application-level `AgentRuntime`.
 
 ## Ollama transport/provider
 
@@ -287,6 +289,14 @@ non-success HTTP status, and malformed/protocol-invalid responses. Error text is
 bounded before it is exposed. Providers do not reinterpret these failures as
 tool errors.
 
+At the application boundary, `AgentError` distinguishes unknown tools,
+read-only policy rejection, iteration and tool-call limits, an empty terminal
+response, and failures while calling a tool through 1C. Normal unsuccessful
+`ToolResult` values, including `invalid_arguments`, remain model-visible tool
+messages. 1C boundary failures are chained as `tool_transport_failure` without
+including arguments or results in the wrapper text. `asyncio` cancellation is
+not converted to an agent error and stops further model/tool calls.
+
 ## Performance metrics
 
 **IMPLEMENTED measurement primitives:** each completion can report Ollama
@@ -310,9 +320,10 @@ still require real measurements on target hardware.
 
 **IMPLEMENTED:** Python unit tests cover settings, typed DTO invariants, the 1C
 client, dynamic registry, Ollama mapping, transport/provider behaviour,
-streaming, metrics, and the diagnostic CLI. They use mocked HTTP transport and
-do not require 1C or Ollama. Opt-in integration tests exercise a live 1C
-publication when all required connection variables are set.
+streaming, metrics, the diagnostic CLI, and agent orchestration including
+limits and cancellation. They use mocked HTTP transport or fakes and do not
+require 1C or Ollama. Opt-in integration tests exercise a live 1C publication
+when all required connection variables are set.
 
 Documentation and contract reviews must compare endpoint names, DTOs, tool
 names, and error semantics on both sides. The developer performs 1C runtime and
@@ -346,18 +357,22 @@ Ollama. Records identify environment, model metadata, generation configuration,
 scenario, mode, repetition, raw/derived metrics, scoring, and expected errors.
 The runner never uses 1C data or credentials.
 
-## Agent runtime (planned P06)
+## Agent runtime (implemented P06)
 
-**PLANNED; no agent runtime exists after P05.** P06 will add an
-application-level Python orchestration layer. Its responsibilities will include
-loading current tools from 1C, calling a selected provider, validating requested
-tools against the current registry, executing them through `OneCClient`, adding
-neutral tool results to the conversation, iterating with explicit limits, and
-returning the final outcome.
+**IMPLEMENTED.** `dnd_ai_bridge.agent.AgentRuntime` sits above
+`ModelProvider`, `ToolRegistry`, and `OneCClient`. Each run loads a fresh dynamic
+registry, sends provider-neutral requests, preserves assistant tool-call
+messages, executes requested tools sequentially, appends deterministic compact
+JSON `role=tool` messages, and continues until a non-empty final assistant
+message or a structured error.
 
-The runtime must preserve campaign isolation and 1C authority, must not call
-arbitrary BSL, and must not turn the provider into an agent. Iteration limits,
-cancellation, and orchestration errors belong at this application layer.
+Only names present in that run's registry can reach `OneCClient`, and P06 only
+allows definitions marked `read_only=true`. Argument schema and semantic
+validation remain in 1C. `AgentLimits` bounds model completions (iterations) and
+total tool calls; there are no retries or parallel tool calls. State and the
+returned transcript are transient and in-memory. Cancellation propagates
+immediately. User-facing partial-output streaming, write-tool policy, and
+persistence are not part of this layer.
 
 ## Architecture invariants
 
@@ -407,5 +422,9 @@ should be left untouched unless the task specifically requires them.
 - **P05 — IMPLEMENTED:** offline benchmark runner, deterministic scoring,
   measured streaming metrics, environment/model metadata, verified cold/warm
   state, repetitions, and durable JSONL output.
-- **P06 — PLANNED:** application-level agent runtime, 1C tool execution, and
-  bounded model/tool iteration.
+- **P06 — IMPLEMENTED:** application-level agent runtime, per-run dynamic tool
+  loading, sequential read-only 1C tool execution, bounded model/tool
+  iteration, typed orchestration errors/results, and cancellation semantics.
+- **PLANNED after P06:** local Python service/API, 1C UI integration,
+  benchmark-driven model-profile routing, user-facing agent streaming, and a
+  separately designed write-tool policy.
