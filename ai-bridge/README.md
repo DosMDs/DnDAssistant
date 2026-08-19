@@ -6,6 +6,10 @@ tool calling. Этап P04 выполняет ровно один model completi
 agent runtime, выполнения LLM tool calls, повторных запросов к модели,
 benchmark scoring или web server.
 
+Архитектура системы и правила разработки описаны в
+[../docs/architecture.md](../docs/architecture.md) и
+[../AGENTS.md](../AGENTS.md).
+
 ## Установка
 
 Требуется Python 3.12 или новее.
