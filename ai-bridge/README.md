@@ -1,12 +1,13 @@
-# D&D Assistant AI bridge — P06
+# D&D Assistant AI bridge — P07
 
 Асинхронный Python-клиент локального HTTP API 1С с динамическим реестром
 инструментов, а также transport/provider layer для локального Ollama native
 tool calling. Этап P05 также содержит воспроизводимый offline benchmark
 локальных моделей. Этап P06 добавляет transient application-level agent runtime
 с динамической загрузкой инструментов 1С, последовательным выполнением
-read-only tool calls и ограниченным model/tool loop. Provider по-прежнему
-выполняет ровно один model completion; web server не реализован.
+read-only tool calls и ограниченным model/tool loop. Этап P07 предоставляет
+этот use case локальному клиенту через FastAPI. Provider по-прежнему выполняет
+ровно один model completion; iteration остаётся обязанностью `AgentRuntime`.
 
 Архитектура системы и правила разработки описаны в
 [../docs/architecture.md](../docs/architecture.md) и
@@ -38,6 +39,10 @@ DND_ONEC_PASSWORD=your-local-password
 - `DND_OLLAMA_BASE_URL` — локальный Ollama endpoint, по умолчанию
   `http://127.0.0.1:11434`;
 - `DND_OLLAMA_TIMEOUT_SECONDS` — timeout Ollama-запроса, по умолчанию 120.
+- `DND_AGENT_MODEL` — конкретная локальная Ollama-модель для P07; обязательна
+  для команды `serve` и не передаётся из 1С;
+- `DND_SERVER_HOST` — адрес ASGI server, по умолчанию loopback `127.0.0.1`;
+- `DND_SERVER_PORT` — порт ASGI server, по умолчанию `8000`.
 
 Для production и benchmark Ollama обязательно должен быть запущен с запретом
 cloud-функций:
@@ -91,6 +96,69 @@ Unknown tool, запрет policy, исчерпание limits, пустой fin
 текст orchestration error. `asyncio.CancelledError` немедленно выходит наружу,
 после cancellation новые completion/tool calls не запускаются. Runtime не
 делает retries, parallel execution, persistence или user-facing streaming.
+
+## Локальный HTTP API
+
+После настройки 1С, Ollama и `DND_AGENT_MODEL` сервер запускается так:
+
+```powershell
+dnd-ai-bridge serve
+```
+
+Альтернативный эквивалент: `python -m dnd_ai_bridge.cli serve`. Сервер по
+умолчанию слушает только `127.0.0.1:8000`. FastAPI lifespan один раз создаёт и
+переиспользует `OneCClient`, `OllamaClient`, `ToolRegistry`, `AgentRuntime` и
+`AssistantService`, а при shutdown закрывает оба HTTP-клиента. Каждый endpoint
+обращается только к `AssistantService`; HTTP DTO и error mapping не входят в
+`AgentRuntime`.
+
+Дешёвый `GET /health` проверяет только сам Python process:
+
+```json
+{"status":"ok"}
+```
+
+`POST /v1/agent/run` принимает минимум одно provider-neutral message. На P07
+физическая модель не является частью request contract:
+
+```json
+{
+  "messages": [
+    {"role": "user", "content": "Где Торвальд?"}
+  ]
+}
+```
+
+Успешный ответ:
+
+```json
+{
+  "response": "Торвальд найден.",
+  "request_id": "abc-123"
+}
+```
+
+Клиент может передать `X-Request-ID`; иначе bridge генерирует идентификатор.
+Он возвращается в том же response header и в JSON body и присутствует в
+request log вместе с method, path, status и duration. Полные prompts и
+credentials на INFO не логируются.
+
+Ошибки используют единый envelope:
+
+```json
+{
+  "error": {"code": "iteration_limit", "message": "..."},
+  "request_id": "abc-123"
+}
+```
+
+`unknown_tool`, `tool_not_allowed` и `empty_final_response` соответствуют HTTP
+502; `iteration_limit` и `tool_call_limit` — 422;
+`tool_transport_failure` — 503. Application code остаётся главным стабильным
+контрактом. Невалидный JSON/DTO возвращает 422/`invalid_request`, неожиданная
+ошибка — безопасный 500/`internal_error` без traceback и внутренних данных.
+`asyncio.CancelledError` не превращается в error envelope и немедленно
+проходит через HTTP/application/runtime слои.
 
 `OllamaProvider.stream()` отдаёт только provider-neutral visible chunks. Поле
 Ollama `thinking` не переносится в них; terminal chunk содержит usage и
@@ -150,10 +218,10 @@ JSONL — append-only primary artifact. После каждой строки в�
 {"schema_version":"1","run_id":"8d12...","scenario_id":"context.synthetic_harbor","scenario_version":1,"role":"context_qa","model":"qwen3:8b","mode":"warm","repeat_index":1,"generation_settings":{"temperature":0.0,"seed":0},"environment":{"os":"Windows","os_version":"10.0.26100","architecture":"AMD64","python_version":"3.12.0","ollama_version":"0.12.6"},"model_info":{"requested_name":"qwen3:8b","reported_name":"qwen3:8b","digest":"sha256:...","parameter_size":"8.2B","quantization":"Q4_K_M","capabilities":["completion","tools"],"context_metadata":{"qwen3.context_length":40960},"allocated_context_length":8192,"size_vram":5550000000},"raw_metrics":{"client_wall_duration_ns":2100000000,"time_to_first_meaningful_chunk_ns":430000000,"total_duration_ns":2050000000,"load_duration_ns":0,"prompt_eval_count":51,"prompt_eval_duration_ns":180000000,"eval_count":24,"eval_duration_ns":1500000000},"derived_metrics":{"prompt_tokens_per_second":283.33,"generation_tokens_per_second":16.0},"scoring":{"passed":true,"checks":{"required:Glass Harbor":true,"required:17 Frostwane":true,"forbidden:Moonport":true,"forbidden:18 Frostwane":true},"message":null},"error":null}
 ```
 
-Оставшиеся задачи после P06: local Python service/API, интеграция с UI 1С,
-benchmark-driven routing логических профилей `fast`/`large`, user-facing agent
-streaming и отдельная безопасная policy для write tools. Эти обязанности не
-входят в provider, benchmark или текущий read-only runtime.
+Оставшиеся задачи после P07: интеграция с UI 1С, benchmark-driven routing
+логических профилей `fast`/`large`, user-facing agent streaming и отдельная
+безопасная policy для write tools. P07 также намеренно не добавляет auth,
+conversation persistence, background workers или automatic fallback.
 
 ## Тесты
 
@@ -161,7 +229,8 @@ streaming и отдельная безопасная policy для write tools. 
 python -m pytest
 ```
 
-Unit-тесты используют mocks/fakes и не требуют 1С, Ollama или модели.
+Unit/API-тесты используют ASGI transport, mocks/fakes и не требуют 1С, Ollama,
+модели или сетевого доступа.
 Integration-тесты
 помечены `integration` и автоматически пропускаются, пока не заданы все три
 переменные `DND_ONEC_BASE_URL`, `DND_ONEC_USERNAME`, `DND_ONEC_PASSWORD`.

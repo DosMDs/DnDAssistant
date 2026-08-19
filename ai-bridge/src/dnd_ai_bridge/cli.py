@@ -8,15 +8,19 @@ import json
 import logging
 import sys
 from collections.abc import Mapping, Sequence
+from functools import partial
 from typing import Any
 
+import uvicorn
 from pydantic import ValidationError
 
+from .api import create_app
 from .benchmark.models import ScenarioRole
 from .benchmark.output import JsonlResultWriter
 from .benchmark.runner import BenchmarkRunner
 from .benchmark.scenarios import load_builtin_scenarios
-from .config import BridgeSettings, OllamaSettings
+from .composition import application_resources_lifespan
+from .config import AgentSettings, BridgeSettings, OllamaSettings, ServerSettings
 from .errors import BridgeError
 from .onec_client import OneCClient
 from .ollama_client import OllamaClient
@@ -28,6 +32,7 @@ def _parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
     subparsers.add_parser("health", help="check 1C API health and version")
     subparsers.add_parser("tools", help="list tool descriptors")
+    subparsers.add_parser("serve", help="run the local assistant HTTP API")
     call = subparsers.add_parser("call", help="call a tool")
     call.add_argument("name", help="tool name reported by /tools")
     call.add_argument("arguments", nargs="?", default="{}", help="JSON object")
@@ -119,6 +124,33 @@ async def _run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _run_server() -> int:
+    """Load all service settings before handing control to Uvicorn."""
+
+    try:
+        bridge_settings = BridgeSettings()
+        ollama_settings = OllamaSettings()
+        agent_settings = AgentSettings()
+        server_settings = ServerSettings()
+    except ValidationError:
+        print(
+            "Invalid server configuration: check DND_ONEC_*, DND_OLLAMA_*, "
+            "DND_AGENT_MODEL and DND_SERVER_*.",
+            file=sys.stderr,
+        )
+        return 2
+
+    resource_lifespan = partial(
+        application_resources_lifespan,
+        bridge_settings=bridge_settings,
+        ollama_settings=ollama_settings,
+        agent_settings=agent_settings,
+    )
+    app = create_app(resource_lifespan=resource_lifespan)
+    uvicorn.run(app, host=server_settings.host, port=server_settings.port)
+    return 0
+
+
 def _keep_alive(value: str | None) -> str | int | None:
     if value is None:
         return None
@@ -191,6 +223,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     _configure_utf8_output()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     args = _parser().parse_args(argv)
+    if args.command == "serve":
+        return _run_server()
     return asyncio.run(_run(args))
 
 

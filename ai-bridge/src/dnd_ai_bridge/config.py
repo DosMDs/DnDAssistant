@@ -84,3 +84,46 @@ class OllamaSettings(BaseSettings):
         return urlunsplit(
             (parts.scheme, parts.netloc, parts.path.rstrip("/"), "", "")
         )
+
+
+class AgentSettings(BaseSettings):
+    """Model selection for the non-routing P07 agent service."""
+
+    model_config = SettingsConfigDict(
+        env_prefix="DND_AGENT_",
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    model: str
+
+    @field_validator("model")
+    @classmethod
+    def validate_model(cls, value: str) -> str:
+        candidate = value.strip()
+        if not candidate:
+            raise ValueError("model must be a non-empty string")
+        return candidate
+
+
+class ServerSettings(BaseSettings):
+    """Local ASGI server settings."""
+
+    model_config = SettingsConfigDict(
+        env_prefix="DND_SERVER_",
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    host: str = "127.0.0.1"
+    port: int = Field(default=8000, ge=1, le=65535)
+
+    @field_validator("host")
+    @classmethod
+    def validate_host(cls, value: str) -> str:
+        candidate = value.strip()
+        if not candidate:
+            raise ValueError("host must be a non-empty string")
+        return candidate

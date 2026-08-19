@@ -38,6 +38,7 @@ Do not introduce mandatory cloud services or OS-specific shell/path behaviour.
   - benchmark;
   - cross-platform runtime glue;
   - application-level agent orchestration;
+  - local HTTP service and lifecycle composition;
   - planned model routing.
 - **Ollama** performs local model inference only.
 

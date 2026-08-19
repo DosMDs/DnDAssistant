@@ -1,13 +1,13 @@
 # D&D Assistant architecture
 
-Status baseline: **after P06**. This document deliberately distinguishes the
+Status baseline: **after P07**. This document deliberately distinguishes the
 working system (**IMPLEMENTED**) from intended later stages (**PLANNED**).
 
 ## Purpose
 
 This is the canonical detailed architecture for D&D Assistant. It defines
 component ownership, integration contracts, invariants, supported environments,
-and the boundary between the completed P06 agent runtime and planned later
+and the boundary between the completed P07 local service and planned later
 integration layers.
 
 Repository-wide working rules are summarised in [AGENTS.md](../AGENTS.md).
@@ -35,8 +35,8 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 - Moving persistent campaign state or domain authority out of 1C.
 - Reimplementing 1C business rules in Python for convenience.
 - Treating Ollama as an application or persistence layer.
-- A bridge web server, conversation persistence, or write-tool execution in
-  the P06 baseline.
+- Conversation persistence, Python-side authentication, or write-tool
+  execution in the P07 baseline.
 
 ## Supported environments
 
@@ -51,25 +51,26 @@ centred on campaign knowledge and assistant workflows, not rules automation.
 
 ## High-level architecture
 
-**IMPLEMENTED after P06:**
+**IMPLEMENTED after P07:**
 
 ```text
-1C application and persistent data
-        |
-        | local, versioned /assistant/v1 HTTP API
-        v
-Python ai-bridge: bounded agent runtime, dynamic tools, neutral model boundary
-        |
-        | local Ollama HTTP API
-        v
-Ollama: one local model completion
+1C UI ── POST /v1/agent/run ──> Python FastAPI adapter
+                                      |
+                                      v
+                               AssistantService
+                                      |
+                                      v
+                                AgentRuntime
+                                /          \
+             1C /assistant/v1 tools       local Ollama inference
 ```
 
 1C defines what game data means and which AI tools exist. Python loads that
 registry for each transient agent run, iterates bounded model completions and
 read-only tool calls, and translates between versioned application contracts
-and a model provider. Ollama only runs inference. The provider still performs
-exactly one completion and never executes tools.
+and a model provider. The local FastAPI adapter exposes that use case to 1C but
+contains no orchestration logic. Ollama only runs inference. The provider still
+performs exactly one completion and never executes tools.
 
 ## 1C responsibilities
 
@@ -93,7 +94,7 @@ entity or campaign logic.
 
 ## Python `ai-bridge` responsibilities
 
-**IMPLEMENTED after P06:**
+**IMPLEMENTED after P07:**
 
 - environment-backed connection settings;
 - an asynchronous typed `OneCClient` for health, tool discovery, and tool
@@ -114,12 +115,19 @@ entity or campaign logic.
 - transient application-level agent orchestration with dynamic tool loading,
   sequential read-only tool execution, explicit limits, typed results and
   errors, and immediate cancellation propagation;
+- a framework-neutral `AssistantService` application boundary;
+- a local FastAPI service with process health, versioned agent-run endpoint,
+  correlation IDs, stable errors, contextual request logging, and preserved
+  cancellation;
+- a lifespan composition root that reuses and closes HTTP clients and runtime
+  dependencies;
+- the `dnd-ai-bridge serve` command with loopback host defaults;
 - unit tests and opt-in live 1C integration tests.
 
-**PLANNED, not present after P06:**
+**PLANNED, not present after P07:**
 
 - logical-profile routing and concrete model selection policy;
-- a local Python service/API and 1C UI integration;
+- 1C UI integration;
 - user-facing agent streaming and write-tool policy.
 
 Python should remain stateless where practical. Persistent game state and
@@ -146,7 +154,7 @@ domain queries accordingly. Tool results are snapshots for an individual call;
 they are not a Python-side database.
 
 Python owns transient integration objects and the in-memory transcript for one
-agent run. Ollama owns only inference-time model state. The P06 runtime adds no
+agent run. Ollama owns only inference-time model state. The P07 service adds no
 conversation persistence; any future persistence needs explicitly designed
 ownership and must not silently become a second store of campaign data.
 
@@ -173,6 +181,39 @@ The HTTP adapter owns JSON parsing, content type, request-size limits,
 serialization, and transport failures. The 1C tool layer owns argument
 validation and tool semantics. Contract changes require coordinated review of
 the 1C producer and Python consumer.
+
+## Python local HTTP API
+
+**IMPLEMENTED in P07:** FastAPI exposes the transient assistant use case. The
+server defaults to `127.0.0.1:8000`; `DND_SERVER_HOST` and `DND_SERVER_PORT`
+are Python-side deployment settings. `DND_AGENT_MODEL` selects one concrete
+local model until benchmark-driven `fast`/`large` routing is implemented. 1C
+does not send or store that physical identifier.
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/health` | Cheap Python process health; no 1C/Ollama probing. |
+| `POST` | `/v1/agent/run` | Run `AssistantService` once for a non-empty message list. |
+
+The dependency direction is `HTTP DTO -> AssistantService -> AgentRuntime`.
+The endpoint does not create clients or implement the model/tool loop. FastAPI
+lifespan constructs one reusable graph of `OneCClient`, `OllamaClient`,
+`OllamaProvider`, `ToolRegistry`, `AgentRuntime`, and `AssistantService`, then
+closes both transports on shutdown.
+
+Every HTTP request uses `X-Request-ID`: a supplied value is preserved and an
+absent value is generated. The response header and agent response/error body
+contain the same value. Request logging includes correlation ID, method, path,
+status, and duration without logging the prompt or credentials.
+
+Successful agent responses are `{response, request_id}`. User-facing failures
+are `{error: {code, message}, request_id}`. Invalid DTOs use
+`invalid_request`; unexpected exceptions use a sanitized `internal_error`.
+Stable P06 runtime codes are not renamed. Model/policy/empty-output failures
+use HTTP 502, configured limit failures use 422, and a 1C tool transport
+failure uses 503. Transport status is not the stable application classifier.
+Pure ASGI request middleware and the application layers allow
+`asyncio.CancelledError` to propagate without an error envelope or retry.
 
 ## AI tool registry
 
@@ -297,6 +338,12 @@ messages. 1C boundary failures are chained as `tool_transport_failure` without
 including arguments or results in the wrapper text. `asyncio` cancellation is
 not converted to an agent error and stops further model/tool calls.
 
+At the inbound Python HTTP boundary, all stable `AgentError.code` values are
+preserved in the error envelope. Validation and unexpected errors use
+`invalid_request` and `internal_error` respectively. Unexpected exception text,
+tracebacks, filesystem paths, and credentials are not returned to the client;
+the chained exception remains available to server-side logging.
+
 ## Performance metrics
 
 **IMPLEMENTED measurement primitives:** each completion can report Ollama
@@ -320,14 +367,15 @@ still require real measurements on target hardware.
 
 **IMPLEMENTED:** Python unit tests cover settings, typed DTO invariants, the 1C
 client, dynamic registry, Ollama mapping, transport/provider behaviour,
-streaming, metrics, the diagnostic CLI, and agent orchestration including
-limits and cancellation. They use mocked HTTP transport or fakes and do not
+streaming, metrics, the CLI, agent orchestration, application service, ASGI
+contracts, correlation IDs, error mapping, cancellation, invocation count, and
+lifespan cleanup. They use mocked/ASGI HTTP transport or fakes and do not
 require 1C or Ollama. Opt-in integration tests exercise a live 1C publication
 when all required connection variables are set.
 
 Documentation and contract reviews must compare endpoint names, DTOs, tool
 names, and error semantics on both sides. The developer performs 1C runtime and
-cross-platform integration testing. P05/P06 tests must keep provider
+cross-platform integration testing. P05/P06/P07 tests must keep provider
 tests focused on one completion and test orchestration separately.
 
 ## Model profiles: `fast` / `large`
@@ -373,6 +421,16 @@ total tool calls; there are no retries or parallel tool calls. State and the
 returned transcript are transient and in-memory. Cancellation propagates
 immediately. User-facing partial-output streaming, write-tool policy, and
 persistence are not part of this layer.
+
+## Local service (implemented P07)
+
+**IMPLEMENTED.** `AssistantService` invokes `AgentRuntime` exactly once and
+returns only the final visible content to its caller. The FastAPI adapter owns
+HTTP DTO validation, request correlation, response envelopes, and status
+mapping. Composition and transport cleanup are process-lifecycle concerns, not
+per-request work. The service is non-streaming and stateless; conversation
+persistence, authentication, UI integration, routing, and write confirmation
+remain outside P07.
 
 ## Architecture invariants
 
@@ -425,6 +483,9 @@ should be left untouched unless the task specifically requires them.
 - **P06 — IMPLEMENTED:** application-level agent runtime, per-run dynamic tool
   loading, sequential read-only 1C tool execution, bounded model/tool
   iteration, typed orchestration errors/results, and cancellation semantics.
-- **PLANNED after P06:** local Python service/API, 1C UI integration,
-  benchmark-driven model-profile routing, user-facing agent streaming, and a
-  separately designed write-tool policy.
+- **P07 — IMPLEMENTED:** local FastAPI service, framework-neutral application
+  service, lifespan composition, request correlation, stable error envelopes,
+  cancellation-safe ASGI handling, and the `serve` CLI command.
+- **PLANNED after P07:** 1C UI integration, benchmark-driven model-profile
+  routing, user-facing agent streaming, and a separately designed write-tool
+  policy.

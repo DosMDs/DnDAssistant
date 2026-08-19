@@ -14,7 +14,7 @@ from .agent import (
     UnknownToolError,
     serialize_tool_result,
 )
-from .config import BridgeSettings, OllamaSettings
+from .config import AgentSettings, BridgeSettings, OllamaSettings, ServerSettings
 from .errors import (
     BridgeError,
     OllamaConnectionError,
@@ -47,6 +47,7 @@ from .ollama_client import OllamaClient
 from .ollama_provider import OllamaGenerationSettings, OllamaProvider
 from .ollama_tools import to_ollama_tools
 from .provider import ModelProvider
+from .service import AssistantService
 from .tool_registry import ToolRegistry
 
 __all__ = [
@@ -55,6 +56,8 @@ __all__ = [
     "AgentLimits",
     "AgentResult",
     "AgentRuntime",
+    "AgentSettings",
+    "AssistantService",
     "BridgeError",
     "BridgeSettings",
     "ChatMessage",
@@ -83,6 +86,7 @@ __all__ = [
     "OneCClient",
     "OneCProtocolError",
     "OneCTransportError",
+    "ServerSettings",
     "ToolDefinition",
     "ToolCallLimitError",
     "ToolDescriptor",

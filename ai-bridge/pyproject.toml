@@ -9,9 +9,11 @@ description = "Local async bridge between D&D Assistant and the 1C HTTP API"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fastapi>=0.115,<1",
     "httpx>=0.27,<1",
     "pydantic>=2.7,<3",
     "pydantic-settings>=2.2,<3",
+    "uvicorn>=0.30,<1",
 ]
 
 [project.optional-dependencies]

@@ -5,7 +5,12 @@ import logging
 import pytest
 from pydantic import ValidationError
 
-from dnd_ai_bridge.config import BridgeSettings, OllamaSettings
+from dnd_ai_bridge.config import (
+    AgentSettings,
+    BridgeSettings,
+    OllamaSettings,
+    ServerSettings,
+)
 
 
 def test_settings_load_from_environment_and_normalize_url(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -109,3 +114,37 @@ def test_ollama_settings_are_configurable_and_normalized() -> None:
 def test_invalid_ollama_base_urls_are_rejected(url: str) -> None:
     with pytest.raises(ValidationError):
         OllamaSettings(ollama_base_url=url)
+
+
+def test_agent_model_is_required_and_trimmed() -> None:
+    settings = AgentSettings(model="  qwen3:8b  ")
+
+    assert settings.model == "qwen3:8b"
+
+    with pytest.raises(ValidationError):
+        AgentSettings(model="   ")
+
+
+def test_server_settings_have_loopback_defaults() -> None:
+    settings = ServerSettings(_env_file=None)
+
+    assert settings.host == "127.0.0.1"
+    assert settings.port == 8000
+
+
+def test_server_settings_load_prefixed_environment(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("DND_SERVER_HOST", "localhost")
+    monkeypatch.setenv("DND_SERVER_PORT", "8123")
+
+    settings = ServerSettings(_env_file=None)
+
+    assert settings.host == "localhost"
+    assert settings.port == 8123
+
+
+@pytest.mark.parametrize("port", [0, 65536])
+def test_invalid_server_port_is_rejected(port: int) -> None:
+    with pytest.raises(ValidationError):
+        ServerSettings(port=port)
