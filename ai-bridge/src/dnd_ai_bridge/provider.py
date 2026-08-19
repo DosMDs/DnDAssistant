@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+from collections.abc import AsyncIterator
 from typing import Protocol
 
-from .models import ModelRequest, ModelResponse
+from .models import ModelRequest, ModelResponse, ModelStreamChunk
 
 
 class ModelProvider(Protocol):
@@ -13,3 +14,7 @@ class ModelProvider(Protocol):
 
         ...
 
+    def stream(self, request: ModelRequest) -> AsyncIterator[ModelStreamChunk]:
+        """Stream one neutral model completion without executing tools."""
+
+        ...

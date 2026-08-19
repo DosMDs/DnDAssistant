@@ -5,7 +5,7 @@ import logging
 import pytest
 from pydantic import ValidationError
 
-from dnd_ai_bridge.config import BridgeSettings
+from dnd_ai_bridge.config import BridgeSettings, OllamaSettings
 
 
 def test_settings_load_from_environment_and_normalize_url(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -84,3 +84,28 @@ def test_non_positive_timeout_is_rejected() -> None:
             onec_timeout_seconds=0,
         )
 
+
+def test_ollama_settings_have_local_defaults() -> None:
+    settings = OllamaSettings(_env_file=None)
+
+    assert settings.ollama_base_url == "http://127.0.0.1:11434"
+    assert settings.ollama_timeout_seconds == 120.0
+
+
+def test_ollama_settings_are_configurable_and_normalized() -> None:
+    settings = OllamaSettings(
+        ollama_base_url="http://localhost:22434/",
+        ollama_timeout_seconds=2.5,
+    )
+
+    assert settings.ollama_base_url == "http://localhost:22434"
+    assert settings.ollama_timeout_seconds == 2.5
+
+
+@pytest.mark.parametrize(
+    "url",
+    ["localhost:11434", "ftp://localhost:11434", "http://localhost:11434?q=1"],
+)
+def test_invalid_ollama_base_urls_are_rejected(url: str) -> None:
+    with pytest.raises(ValidationError):
+        OllamaSettings(ollama_base_url=url)

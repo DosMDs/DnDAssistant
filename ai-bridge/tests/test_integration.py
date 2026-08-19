@@ -51,18 +51,22 @@ async def test_live_tools_current_contract() -> None:
     assert all(by_name[name].read_only for name in EXPECTED_TOOLS)
 
 
-def _first_entity_id(result: ToolResult) -> Any | None:
-    """Best-effort extraction; live campaign data is intentionally not fixed."""
+def _first_entity_reference(result: ToolResult) -> tuple[Any, Any] | None:
+    """Extract the dynamic entity identity returned by search_entities."""
 
     if not result.success or not isinstance(result.data, dict):
         return None
     for collection_name in ("items", "entities", "results", "candidates"):
         collection = result.data.get(collection_name)
-        if isinstance(collection, list) and collection and isinstance(collection[0], dict):
-            candidate = collection[0]
-            for id_name in ("entity_id", "id"):
-                if id_name in candidate:
-                    return candidate[id_name]
+        if not isinstance(collection, list):
+            continue
+        for candidate in collection:
+            if not isinstance(candidate, dict):
+                continue
+            entity_id = candidate.get("id")
+            entity_type = candidate.get("type")
+            if entity_id is not None and entity_type is not None:
+                return entity_id, entity_type
     return None
 
 
@@ -75,15 +79,16 @@ async def test_live_read_only_tool_flow() -> None:
         search = await client.call_tool("search_entities", {"query": "а", "limit": 1})
         assert search.success, search.error
 
-        entity_id = _first_entity_id(search)
-        if entity_id is not None:
-            entity = await client.call_tool("get_entity", {"entity_id": entity_id})
+        entity_reference = _first_entity_reference(search)
+        if entity_reference is not None:
+            entity_id, entity_type = entity_reference
+            arguments = {"id": entity_id, "type": entity_type}
+            entity = await client.call_tool("get_entity", arguments)
             relations = await client.call_tool(
-                "get_relations", {"entity_id": entity_id}
+                "get_relations", arguments
             )
             assert entity.success, entity.error
             assert relations.success, relations.error
 
         agenda = await client.call_tool("get_calendar_agenda", {})
         assert agenda.success, agenda.error
-

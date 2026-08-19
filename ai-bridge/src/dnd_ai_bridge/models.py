@@ -85,9 +85,16 @@ class ChatRole(StrEnum):
     TOOL = "tool"
 
 
+class ModelToolCall(ApiModel):
+    name: str
+    arguments: dict[str, Any]
+
+
 class ChatMessage(ApiModel):
     role: ChatRole
-    content: str
+    content: str = ""
+    tool_calls: list[ModelToolCall] = Field(default_factory=list)
+    tool_name: str | None = None
 
 
 class ToolDefinition(ApiModel):
@@ -102,5 +109,38 @@ class ModelRequest(ApiModel):
     tools: list[ToolDefinition] = Field(default_factory=list)
 
 
+class ModelUsageMetrics(ApiModel):
+    """Provider-neutral usage and server-side timings for one completion."""
+
+    total_duration_ns: int | None = Field(default=None, ge=0)
+    load_duration_ns: int | None = Field(default=None, ge=0)
+    prompt_eval_count: int | None = Field(default=None, ge=0)
+    prompt_eval_duration_ns: int | None = Field(default=None, ge=0)
+    eval_count: int | None = Field(default=None, ge=0)
+    eval_duration_ns: int | None = Field(default=None, ge=0)
+
+
+class ModelPerformanceMetrics(ApiModel):
+    """Client-observed monotonic timestamps and derived latency values."""
+
+    request_started_ns: int = Field(ge=0)
+    first_meaningful_chunk_ns: int | None = Field(default=None, ge=0)
+    completed_ns: int = Field(ge=0)
+    client_wall_duration_ns: int = Field(ge=0)
+    time_to_first_chunk_ns: int | None = Field(default=None, ge=0)
+
+
 class ModelResponse(ApiModel):
     message: ChatMessage
+    usage: ModelUsageMetrics = Field(default_factory=ModelUsageMetrics)
+    performance: ModelPerformanceMetrics | None = None
+
+
+class ModelStreamChunk(ApiModel):
+    """Provider-neutral visible output from a single streaming completion."""
+
+    content: str = ""
+    tool_calls: list[ModelToolCall] = Field(default_factory=list)
+    done: bool = False
+    usage: ModelUsageMetrics | None = None
+    performance: ModelPerformanceMetrics | None = None

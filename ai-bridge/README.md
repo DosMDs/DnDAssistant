@@ -1,9 +1,10 @@
-# D&D Assistant AI bridge — P03
+# D&D Assistant AI bridge — P04
 
 Асинхронный Python-клиент локального HTTP API 1С с динамическим реестром
-инструментов и чистым преобразованием их схем в Ollama native tool calling.
-Этап P03 не содержит agent runtime, выполнения LLM tool calls, повторных
-запросов к модели или web server.
+инструментов, а также transport/provider layer для локального Ollama native
+tool calling. Этап P04 выполняет ровно один model completion и не содержит
+agent runtime, выполнения LLM tool calls, повторных запросов к модели,
+benchmark scoring или web server.
 
 ## Установка
 
@@ -28,6 +29,9 @@ DND_ONEC_PASSWORD=your-local-password
 - `DND_ONEC_USERNAME` — пользователь публикации 1С;
 - `DND_ONEC_PASSWORD` — пароль публикации 1С;
 - `DND_ONEC_TIMEOUT_SECONDS` — timeout одного HTTP-запроса, по умолчанию 10.
+- `DND_OLLAMA_BASE_URL` — локальный Ollama endpoint, по умолчанию
+  `http://127.0.0.1:11434`;
+- `DND_OLLAMA_TIMEOUT_SECONDS` — timeout Ollama-запроса, по умолчанию 120.
 
 `.env` исключён из Git. Пароль хранится в `SecretStr`, не выводится CLI и не
 попадает в логи.
@@ -37,7 +41,13 @@ DND_ONEC_PASSWORD=your-local-password
 ```python
 from dnd_ai_bridge import (
     BridgeSettings,
+    ChatMessage,
+    ChatRole,
+    ModelRequest,
     OneCClient,
+    OllamaClient,
+    OllamaProvider,
+    OllamaSettings,
     ToolRegistry,
     to_ollama_tools,
 )
@@ -49,7 +59,20 @@ async with OneCClient(settings) as onec:
     tools = await registry.load_tools()
     ollama_tools = to_ollama_tools(tools)
     result = await onec.call_tool("get_current_context", {})
+
+async with OllamaClient(OllamaSettings()) as ollama:
+    provider = OllamaProvider(ollama, model="qwen3:8b")
+    response = await provider.complete(
+        ModelRequest(
+            messages=[ChatMessage(role=ChatRole.USER, content="Где Торвальд?")]
+        )
+    )
 ```
+
+`OllamaProvider.stream()` отдаёт только provider-neutral visible chunks. Поле
+Ollama `thinking` не переносится в них; terminal chunk содержит usage и
+performance metrics. Диагностические методы transport: `version()`,
+`list_models()` и `show_model()`.
 
 Диагностические команды:
 

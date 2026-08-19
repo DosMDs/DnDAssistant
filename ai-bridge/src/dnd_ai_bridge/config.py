@@ -55,3 +55,32 @@ class BridgeSettings(BaseSettings):
             )
         return self
 
+
+class OllamaSettings(BaseSettings):
+    """Local Ollama HTTP connection settings."""
+
+    model_config = SettingsConfigDict(
+        env_prefix="DND_",
+        env_file=".env",
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+    ollama_base_url: str = "http://127.0.0.1:11434"
+    ollama_timeout_seconds: float = Field(default=120.0, gt=0)
+
+    @field_validator("ollama_base_url")
+    @classmethod
+    def normalize_base_url(cls, value: str) -> str:
+        """Validate HTTP(S) and remove trailing path slashes."""
+
+        candidate = value.strip()
+        parts = urlsplit(candidate)
+        if parts.scheme not in {"http", "https"} or not parts.hostname:
+            raise ValueError("ollama_base_url must be an absolute HTTP(S) URL")
+        if parts.query or parts.fragment:
+            raise ValueError("ollama_base_url must not contain a query or fragment")
+
+        return urlunsplit(
+            (parts.scheme, parts.netloc, parts.path.rstrip("/"), "", "")
+        )
