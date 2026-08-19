@@ -32,9 +32,13 @@ Do not introduce mandatory cloud services or OS-specific shell/path behaviour.
 - **1C** owns UI, business/domain logic, persistent state, campaigns,
   entities, journal, entity relations, aliases, game time/calendar, the source
   of truth for game data, and AI tool semantics and schemas.
-- **Python `ai-bridge`** is the integration boundary. It owns typed HTTP
-  clients, provider adapters, cross-platform runtime glue, and the planned
-  agent orchestration, benchmark, and model routing layers.
+- **Python `ai-bridge`** owns:
+- typed HTTP clients;
+- provider adapters;
+- benchmark;
+- cross-platform runtime glue;
+- planned agent orchestration;
+- planned model routing.
 - **Ollama** performs local model inference only.
 
 ## Architecture invariants
