@@ -33,12 +33,12 @@ Do not introduce mandatory cloud services or OS-specific shell/path behaviour.
   entities, journal, entity relations, aliases, game time/calendar, the source
   of truth for game data, and AI tool semantics and schemas.
 - **Python `ai-bridge`** owns:
-- typed HTTP clients;
-- provider adapters;
-- benchmark;
-- cross-platform runtime glue;
-- planned agent orchestration;
-- planned model routing.
+  - typed HTTP clients;
+  - provider adapters;
+  - benchmark;
+  - cross-platform runtime glue;
+  - planned agent orchestration;
+  - planned model routing.
 - **Ollama** performs local model inference only.
 
 ## Architecture invariants
